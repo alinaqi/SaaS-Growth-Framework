@@ -262,6 +262,56 @@
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
+        
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -275,6 +325,11 @@
                     <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
                     <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
                     <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
                     <a href="fullframework.html" class="nav-link active"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
                 </div>
             </nav>
@@ -353,8 +408,8 @@
                 <h3>Available Channel Guides</h3>
                 <p>The ReachGenie Growth Framework covers a comprehensive set of marketing channels and tactics. Currently, we have detailed guides available for:</p>
                 
-                <div class="flex" style="align-items: stretch; margin-top: 2rem;">
-                    <div class="col" style="min-width: 250px;">
+                <div class="flex" style="align-items: stretch; margin-top: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
                         <div class="card" style="height: 100%;">
                             <h3>Facebook Landing Pages</h3>
                             <p>Create high-converting landing pages specifically optimized for Facebook ad traffic.</p>
@@ -362,7 +417,7 @@
                         </div>
                     </div>
                     
-                    <div class="col" style="min-width: 250px;">
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
                         <div class="card" style="height: 100%;">
                             <h3>Cold Outbound</h3>
                             <p>Master cold email outreach with our comprehensive playbook on infrastructure, copywriting, and AI personalization.</p>
@@ -370,11 +425,67 @@
                         </div>
                     </div>
                     
-                    <div class="col" style="min-width: 250px;">
-                        <div class="card" style="height: 100%; opacity: 0.8;">
-                            <h3>More Coming Soon</h3>
-                            <p>We're actively developing comprehensive guides for Content Marketing, SEO, Social Media, and more.</p>
-                            <a href="#" class="btn btn-outline" style="margin-left: 0; cursor: not-allowed;">Stay Tuned</a>
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Content Marketing</h3>
+                            <p>Build a strategic content marketing program that drives organic traffic, leads, and establishes thought leadership.</p>
+                            <a href="contentmarketing.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>SEO</h3>
+                            <p>Learn how to optimize your website and content for search engines to drive sustainable organic traffic.</p>
+                            <a href="seo.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Social Media</h3>
+                            <p>Develop an effective social media strategy for B2B SaaS to build brand awareness and generate leads.</p>
+                            <a href="socialmedia.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Partnerships</h3>
+                            <p>Leverage strategic partnerships to expand your reach, access new customer segments, and accelerate growth.</p>
+                            <a href="partnerships.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Viral & Referral</h3>
+                            <p>Implement viral and referral programs that turn your customers into advocates and drive organic growth.</p>
+                            <a href="viral.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Events</h3>
+                            <p>Learn how to leverage both virtual and in-person events to generate leads and build meaningful relationships.</p>
+                            <a href="events.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Product Led Growth</h3>
+                            <p>Create a product-led growth strategy that uses your product as the primary driver of customer acquisition and expansion.</p>
+                            <a href="plg.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>PR & Media</h3>
+                            <p>Develop a PR strategy that builds credibility, increases visibility, and positions your company as an industry leader.</p>
+                            <a href="pr.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
                         </div>
                     </div>
                 </div>
@@ -427,9 +538,17 @@
         <div class="container">
             <h2>Start Building Your Growth Engine</h2>
             <p class="subheader" style="color: white;">Explore our specialized guides to develop a comprehensive marketing strategy</p>
-            <div style="margin-top: 2rem;">
+            <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
                 <a href="index.html" class="btn">Facebook Landing Pages</a>
                 <a href="coldoutbound.html" class="btn">Cold Outbound</a>
+                <a href="contentmarketing.html" class="btn">Content Marketing</a>
+                <a href="seo.html" class="btn">SEO</a>
+                <a href="socialmedia.html" class="btn">Social Media</a>
+                <a href="partnerships.html" class="btn">Partnerships</a>
+                <a href="viral.html" class="btn">Viral & Referral</a>
+                <a href="events.html" class="btn">Events</a>
+                <a href="plg.html" class="btn">Product Led Growth</a>
+                <a href="pr.html" class="btn">PR & Media</a>
             </div>
         </div>
     </section>
@@ -439,5 +558,52 @@
             <p>© 2023 ReachGenie Growth Framework. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tab buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Show the selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activate the clicked tab button
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedButton) {
+                    selectedButton.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Activate the first tab by default
+            const firstTabButton = tabButtons[0];
+            if (firstTabButton) {
+                const firstTabId = firstTabButton.getAttribute('data-tab');
+                switchTab(firstTabId);
+            }
+        });
+    </script>
 </body>
 </html> 

@@ -232,6 +232,56 @@
                 gap: 10px;
             }
         }
+        
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -245,6 +295,11 @@
                     <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
                     <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
                     <a href="socialmedia.html" class="nav-link active"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
                     <a href="fullframework.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
                 </div>
             </nav>
@@ -254,30 +309,335 @@
     <section class="hero">
         <div class="container">
             <h1>Social Media Marketing for B2B SaaS</h1>
-            <p class="subheader">Engage your audience and drive growth through strategic social media campaigns</p>
-            <a href="#" class="btn btn-primary">Get Started Now</a>
-            <a href="#" class="btn btn-outline">See Examples</a>
+            <p class="subheader">Build brand authority and drive qualified leads through strategic social media presence across key platforms</p>
+            <a href="#step-by-step" class="btn btn-primary">Get Started Now</a>
+            <a href="#examples" class="btn btn-outline">See Examples</a>
+            <div style="margin-top: 20px;">
+                <p>Looking for SEO strategies? <a href="seo.html" style="color: var(--primary); text-decoration: underline; font-weight: bold;">Check out our SEO Guide</a></p>
+            </div>
         </div>
     </section>
     
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Coming Soon</h2>
-                <p>We're currently developing comprehensive social media marketing strategies and best practices for B2B SaaS companies.</p>
+                <h2>Why Social Media is Essential for B2B SaaS</h2>
+                <p>Strategic social media presence builds authority, drives engagement, and generates qualified leads</p>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Platform-Specific Impact</h3>
+                    <p>84% of B2B marketers say LinkedIn delivers the best value for lead generation, while platforms like WeChat dominate in regions like China</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Professional Networking</h3>
+                    <p>Direct access to decision-makers through professional networks, with LinkedIn being the primary platform for B2B networking in Western markets</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Brand Authority</h3>
+                    <p>Regular thought leadership content and engagement builds credibility and trust with potential customers in your industry</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Regional Reach</h3>
+                    <p>Different platforms dominate different regions - LinkedIn in US/Europe, WeChat in China, WhatsApp in MENA - enabling global market penetration</p>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"By focusing on LinkedIn thought leadership and WeChat for our APAC market, we've seen a 300% increase in qualified leads from social channels. The key was adapting our approach for each platform and region while maintaining consistent brand messaging."</p>
+                <p class="testimonial-author">— Sarah Li, Global Marketing Director at CloudTech</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="step-by-step" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform-Specific Strategy Guide</h2>
+                <p>Master the key social platforms for B2B SaaS marketing</p>
+            </div>
+            
+            <ol class="steps">
+                <li class="step">
+                    <h3>LinkedIn Strategy</h3>
+                    <p>The dominant platform for B2B in Western markets</p>
+                    <ul class="checklist">
+                        <li>Create and optimize company page with complete information</li>
+                        <li>Share thought leadership content regularly</li>
+                        <li>Engage with industry conversations and hashtags</li>
+                        <li>Use LinkedIn Ads for targeted reach</li>
+                        <li>Leverage employee advocacy for wider reach</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>WeChat for APAC Markets</h3>
+                    <p>Essential platform for B2B marketing in China</p>
+                    <ul class="checklist">
+                        <li>Set up WeChat Official Account for content distribution</li>
+                        <li>Create region-specific content and campaigns</li>
+                        <li>Use WeChat Mini Programs for engagement</li>
+                        <li>Build WeChat groups for community engagement</li>
+                        <li>Implement WeChat Pay for transactions</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>WhatsApp Business Strategy</h3>
+                    <p>Key platform for MENA and other regions</p>
+                    <ul class="checklist">
+                        <li>Set up WhatsApp Business account with verification</li>
+                        <li>Create broadcast lists for updates and announcements</li>
+                        <li>Use status updates for content sharing</li>
+                        <li>Implement quick replies for common queries</li>
+                        <li>Build customer service workflows</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Content Strategy & Creation</h3>
+                    <p>Develop engaging content for each platform</p>
+                    <ul class="checklist">
+                        <li>Create platform-specific content calendars</li>
+                        <li>Share industry insights and company updates</li>
+                        <li>Use rich media (images, videos, infographics)</li>
+                        <li>Maintain consistent brand voice across platforms</li>
+                        <li>Track engagement metrics and optimize</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Paid Social Advertising</h3>
+                    <p>Amplify reach through strategic paid campaigns</p>
+                    <ul class="checklist">
+                        <li>Set up targeted LinkedIn ad campaigns</li>
+                        <li>Use WeChat Moments ads in China</li>
+                        <li>Implement retargeting strategies</li>
+                        <li>Test different ad formats and creatives</li>
+                        <li>Monitor and optimize ad performance</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Community Building & Engagement</h3>
+                    <p>Foster active communities on each platform</p>
+                    <ul class="checklist">
+                        <li>Create and moderate professional groups</li>
+                        <li>Host live sessions and webinars</li>
+                        <li>Engage with user comments and messages</li>
+                        <li>Share user-generated content</li>
+                        <li>Build relationships with industry influencers</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+    
+    <section id="examples" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Social Media Success Stories</h2>
+                <p>Learn from companies that have built powerful social media presence</p>
             </div>
             
             <div class="card">
-                <h3>What to Expect</h3>
-                <p>Our social media marketing guide will include:</p>
-                <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li>Platform selection and strategy development</li>
-                    <li>Content planning and creation</li>
-                    <li>Community building and engagement tactics</li>
-                    <li>Paid social media advertising</li>
-                    <li>Analytics and performance measurement</li>
+                <h3>Microsoft's WeChat Success</h3>
+                <p>Microsoft China effectively uses WeChat for B2B engagement, running interactive campaigns and building a strong community through their Official Account.</p>
+                <p><strong>Key Strategies:</strong></p>
+                <ul class="checklist">
+                    <li>Interactive quizzes for IT managers</li>
+                    <li>Live chats during conferences</li>
+                    <li>WeChat Mini Programs for events</li>
+                    <li>QR code integration everywhere</li>
                 </ul>
-                <p>Check back soon for the complete guide!</p>
+            </div>
+            
+            <div class="card">
+                <h3>Slack's Community-Driven Growth</h3>
+                <p>Slack achieved rapid growth through word-of-mouth and social proof, with over 50% of growth coming from user referrals and social sharing.</p>
+                <p><strong>Success Factors:</strong></p>
+                <ul class="checklist">
+                    <li>Strong presence in tech communities</li>
+                    <li>Employee advocacy program</li>
+                    <li>Engaging social content strategy</li>
+                    <li>Consistent brand voice across platforms</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Freshworks' Global Social Strategy</h3>
+                <p>Freshworks successfully expanded globally by adapting their social media approach to different regions and cultures.</p>
+                <p><strong>Key Tactics:</strong></p>
+                <ul class="checklist">
+                    <li>Region-specific content and campaigns</li>
+                    <li>Local language social support</li>
+                    <li>Platform-specific engagement strategies</li>
+                    <li>Cultural adaptation of messaging</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Social Media Tools & Resources</h2>
+                <p>Essential tools to help you execute your social media strategy effectively</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Content Management</h3>
+                        <ul class="checklist">
+                            <li>Buffer/Hootsuite for scheduling</li>
+                            <li>Canva for social graphics</li>
+                            <li>Later for visual planning</li>
+                            <li>Sprout Social for team collaboration</li>
+                            <li>ContentCal for content calendar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Analytics & Reporting</h3>
+                        <ul class="checklist">
+                            <li>LinkedIn Analytics</li>
+                            <li>WeChat Business Analytics</li>
+                            <li>Socialbakers for insights</li>
+                            <li>Google Analytics for social traffic</li>
+                            <li>Brandwatch for monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Engagement Tools</h3>
+                        <ul class="checklist">
+                            <li>Mention for social listening</li>
+                            <li>Agorapulse for engagement</li>
+                            <li>SocialPilot for team workflow</li>
+                            <li>MobileMonkey for chat automation</li>
+                            <li>Oktopost for B2B social</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Advertising Tools</h3>
+                        <ul class="checklist">
+                            <li>LinkedIn Campaign Manager</li>
+                            <li>WeChat Advertising Platform</li>
+                            <li>AdEspresso for optimization</li>
+                            <li>Smartly.io for automation</li>
+                            <li>Revealbot for reporting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Common Social Media Mistakes to Avoid</h2>
+                <p>Learn from these pitfalls to make your social media strategy more effective</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Strategy Mistakes</h3>
+                        <ul class="checklist">
+                            <li>Using wrong platforms for your audience</li>
+                            <li>Inconsistent posting schedule</li>
+                            <li>No clear content strategy</li>
+                            <li>Ignoring regional differences</li>
+                            <li>Poor platform integration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Content Mistakes</h3>
+                        <ul class="checklist">
+                            <li>Too promotional content</li>
+                            <li>Poor quality visuals</li>
+                            <li>Inconsistent brand voice</li>
+                            <li>Not engaging with comments</li>
+                            <li>Generic messaging</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Advertising Mistakes</h3>
+                        <ul class="checklist">
+                            <li>Poor targeting</li>
+                            <li>Unclear call-to-action</li>
+                            <li>Not testing ad variants</li>
+                            <li>Ignoring mobile optimization</li>
+                            <li>Insufficient budget allocation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Measurement Mistakes</h3>
+                        <ul class="checklist">
+                            <li>Wrong metrics focus</li>
+                            <li>Not tracking ROI</li>
+                            <li>Ignoring engagement quality</li>
+                            <li>Poor attribution tracking</li>
+                            <li>Not adjusting based on data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">Which social platforms should B2B SaaS companies focus on?</div>
+                    <div class="faq-answer">
+                        <p>For Western markets, LinkedIn is the primary platform, with 84% of B2B marketers reporting it delivers the best value. For China, WeChat is essential with 100% of B2B companies using it. WhatsApp is crucial for MENA regions. The key is to focus on platforms where your target audience is most active professionally. Start with 1-2 primary platforms and expand based on results and resources.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often should we post on social media?</div>
+                    <div class="faq-answer">
+                        <p>Posting frequency varies by platform: LinkedIn 3-5 times per week, WeChat 2-3 times per week for Official Account posts, Twitter 1-3 times per day. However, quality trumps quantity - focus on valuable, engaging content rather than hitting arbitrary posting targets. Test different frequencies and measure engagement to find your optimal cadence.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How much should we invest in social media marketing?</div>
+                    <div class="faq-answer">
+                        <p>Initial investment typically includes: content creation ($1000-3000/month), social media management tools ($100-500/month), and paid advertising (start with $500-1000/month for testing). As you identify what works, scale your paid spend based on ROI. Many companies start with organic content and employee advocacy, then add paid promotion as they prove channel effectiveness.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do we measure social media ROI?</div>
+                    <div class="faq-answer">
+                        <p>Track metrics across the funnel: Awareness (reach, impressions), Engagement (clicks, comments, shares), Lead Generation (form fills, content downloads), and Conversion (demos, trials, sales). Use UTM parameters and attribution tools to track social traffic through your funnel. Calculate ROI by comparing total investment (content, tools, ads) against revenue from social-sourced leads.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Should we use automation tools for social media?</div>
+                    <div class="faq-answer">
+                        <p>Automation tools are valuable for scheduling, analytics, and basic engagement, but shouldn't replace human interaction. Use tools for consistency in posting, monitoring mentions, and gathering analytics. However, maintain personal engagement for comments, direct messages, and community management. The best approach is a hybrid: automate routine tasks while keeping engagement authentic.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -287,5 +647,69 @@
             <p>© 2023 ReachGenie Growth Framework. All rights reserved.</p>
         </div>
     </footer>
+    
+    <script>
+        // Enhanced script to handle FAQ toggles
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    
+                    // Toggle active class on the question
+                    question.classList.toggle('active');
+                    
+                    // Toggle active class on the answer
+                    answer.classList.toggle('active');
+                });
+            });
+        });
+
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tab buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Show the selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activate the clicked tab button
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedButton) {
+                    selectedButton.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Activate the first tab by default
+            const firstTabButton = tabButtons[0];
+            if (firstTabButton) {
+                const firstTabId = firstTabButton.getAttribute('data-tab');
+                switchTab(firstTabId);
+            }
+        });
+    </script>
 </body>
 </html> 

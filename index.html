@@ -494,6 +494,56 @@
             margin-right: 8px;
             font-size: 1.1rem;
         }
+
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -507,6 +557,11 @@
                     <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
                     <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
                     <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
                     <a href="fullframework.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
                 </div>
             </nav>
@@ -1363,14 +1418,18 @@
                 
                 <div id="quiz-results" style="display: none;">
                     <h3>Your Landing Page Score</h3>
-                    <div class="score-container" style="text-align: center; margin: 30px 0;">
+                    
+                    <!-- New Results Overview Section -->
+                    <div id="results-overview"></div>
+                    
+                    <div class="score-container" style="text-align: center; margin: 30px 0; display: none;">
                         <div class="score-circle" style="position: relative; width: 150px; height: 150px; border-radius: 50%; background: #f0f0f0; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
                             <div id="score-display" style="font-size: 48px; font-weight: bold; color: var(--primary);"></div>
                         </div>
                         <p id="score-label" style="margin-top: 15px; font-size: 18px; font-weight: bold;"></p>
                     </div>
                     
-                    <div id="feedback-summary" style="margin-bottom: 20px;"></div>
+                    <div id="feedback-summary" style="margin-bottom: 20px; display: none;"></div>
                     
                     <h4>Areas for Improvement</h4>
                     <div id="improvement-areas"></div>
@@ -1380,7 +1439,18 @@
                     
                     <div style="margin-top: 30px;">
                         <button class="btn btn-primary" onclick="restartQuiz()">Retake Assessment</button>
-                        <a href="#step-by-step" class="btn btn-outline">See Improvement Guide</a>
+                        <a href="#step-by-step" class="btn btn-outline" onclick="scrollToElement('step-by-step'); return false;">See Improvement Guide</a>
+                    </div>
+                    
+                    <!-- Quick Jump Links -->
+                    <div class="quick-links" style="margin-top: 30px; background-color: #f8f9fa; padding: 15px; border-radius: 8px;">
+                        <p style="font-weight: bold; margin-bottom: 10px;">Jump to Section:</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <button class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('improvement-areas')">Areas for Improvement</button>
+                            <button class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('strengths-areas')">Strengths</button>
+                            <a href="#step-by-step" class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('step-by-step'); return false;">Improvement Guide</a>
+                            <a href="#best-practices" class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('best-practices'); return false;">Best Practices</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1707,6 +1777,17 @@
             }
         }
         
+        // Add smooth scrolling for better navigation
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
         function showResults() {
             document.getElementById('quiz-questions').style.display = 'none';
             document.getElementById('quiz-results').style.display = 'block';
@@ -1743,35 +1824,108 @@
             const scorePercentage = Math.round((totalScore / maxPossibleScore) * 100);
             document.getElementById('score-display').textContent = scorePercentage;
             
-            // Set score label
-            let scoreLabel;
-            if (scorePercentage >= 80) {
-                scoreLabel = "Excellent! Your landing page follows best practices";
-            } else if (scorePercentage >= 60) {
-                scoreLabel = "Good, with room for improvement";
-            } else if (scorePercentage >= 40) {
-                scoreLabel = "Fair, several areas need attention";
-            } else {
-                scoreLabel = "Needs significant improvement";
+            // Create a summary card at the top
+            const resultsOverview = document.getElementById('results-overview');
+            if (resultsOverview) {
+                // Count strengths and improvement areas
+                let strengths = [];
+                let improvements = [];
+                
+                for (const category in categoryScores) {
+                    const categoryData = categoryScores[category];
+                    const categoryPercentage = (categoryData.score / categoryData.total) * 100;
+                    
+                    const categoryNames = {
+                        focus: "Page Focus & Structure",
+                        message_match: "Ad-to-Page Consistency",
+                        performance: "Page Performance",
+                        form: "Form Design",
+                        trust: "Trust & Social Proof",
+                        clarity: "Value Proposition Clarity",
+                        mobile: "Mobile Optimization",
+                        tracking: "Conversion Tracking",
+                        ux: "User Experience & Cognitive Load",
+                        personalization: "Personalization",
+                        optimization: "Testing & Optimization"
+                    };
+                    
+                    const categoryName = categoryNames[category] || category;
+                    
+                    if (categoryPercentage >= 70) {
+                        strengths.push({
+                            category: categoryName,
+                            score: categoryPercentage
+                        });
+                    } else {
+                        improvements.push({
+                            category: categoryName,
+                            score: categoryPercentage
+                        });
+                    }
+                }
+                
+                // Sort
+                improvements.sort((a, b) => a.score - b.score);
+                strengths.sort((a, b) => b.score - a.score);
+                
+                // Define assessment level based on score
+                let assessmentLevel = "";
+                let assessmentColor = "";
+                let assessmentDescription = "";
+                
+                if (scorePercentage >= 90) {
+                    assessmentLevel = "Excellent";
+                    assessmentColor = "#16a34a";
+                    assessmentDescription = "Your landing page follows best practices for conversion optimization.";
+                } else if (scorePercentage >= 70) {
+                    assessmentLevel = "Good";
+                    assessmentColor = "#0ea5e9";
+                    assessmentDescription = "Your landing page has several strengths with some areas that could be improved.";
+                } else if (scorePercentage >= 50) {
+                    assessmentLevel = "Needs Improvement";
+                    assessmentColor = "#ffc107";
+                    assessmentDescription = "Your landing page has significant room for improvement in several key areas.";
+                } else {
+                    assessmentLevel = "Requires Attention";
+                    assessmentColor = "#ff6b6b";
+                    assessmentDescription = "Your landing page needs substantial improvements to optimize conversion rates.";
+                }
+                
+                // Build the summary card
+                resultsOverview.innerHTML = `
+                    <div class="summary-card" style="background-color: white; border-radius: 8px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background-color: ${assessmentColor}; display: flex; justify-content: center; align-items: center; margin-right: 20px;">
+                                <span style="color: white; font-size: 24px; font-weight: bold;">${scorePercentage}%</span>
+                            </div>
+                            <div>
+                                <h3 style="color: ${assessmentColor}; margin-bottom: 5px;">${assessmentLevel}</h3>
+                                <p>${assessmentDescription}</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                            <div style="flex: 1; padding-right: 10px;">
+                                <h4 style="color: #0ea5e9; margin-bottom: 10px;">Strengths (${strengths.length})</h4>
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    ${strengths.slice(0, 3).map(item => `<li>${item.category}</li>`).join('')}
+                                    ${strengths.length > 3 ? `<li>+ ${strengths.length - 3} more...</li>` : ''}
+                                </ul>
+                            </div>
+                            <div style="flex: 1; padding-left: 10px; border-left: 1px solid #eee;">
+                                <h4 style="color: #ff6b6b; margin-bottom: 10px;">Areas to Improve (${improvements.length})</h4>
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    ${improvements.slice(0, 3).map(item => `<li>${item.category}</li>`).join('')}
+                                    ${improvements.length > 3 ? `<li>+ ${improvements.length - 3} more...</li>` : ''}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
             }
-            document.getElementById('score-label').textContent = scoreLabel;
             
-            // Add feedback summary
-            let feedbackSummary = '';
-            if (scorePercentage >= 80) {
-                feedbackSummary = 'Your landing page is well-optimized based on our research findings. With a few minor improvements, you could potentially achieve even better results.';
-            } else if (scorePercentage >= 60) {
-                feedbackSummary = 'Your landing page follows many best practices but has several key areas where improvements could significantly increase your conversion rates.';
-            } else if (scorePercentage >= 40) {
-                feedbackSummary = 'Your landing page needs considerable work to align with best practices. Implementing our recommendations could substantially improve your Facebook ad performance.';
-            } else {
-                feedbackSummary = 'Your landing page requires a major overhaul to meet best practices standards. Following our recommendations could dramatically improve your conversion rates.';
-            }
-            document.getElementById('feedback-summary').innerHTML = `<p>${feedbackSummary}</p>`;
-            
-            // Identify strengths and areas for improvement
-            const strengths = [];
-            const improvements = [];
+            // Process categories for detailed display
+            let strengths = [];
+            let improvements = [];
             
             for (const category in categoryScores) {
                 const categoryData = categoryScores[category];
@@ -1819,6 +1973,12 @@
             improvementContainer.innerHTML = '';
             
             if (improvements.length > 0) {
+                // Add a header for the improvements section with consistent styling
+                const improvementHeader = document.createElement('div');
+                improvementHeader.className = 'section-header';
+                improvementHeader.innerHTML = `<h3 class="mb-4" style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Areas for Improvement</h3>`;
+                improvementContainer.appendChild(improvementHeader);
+                
                 improvements.forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'improvement-item';
@@ -1827,6 +1987,18 @@
                     itemElement.style.backgroundColor = '#fff8f8';
                     itemElement.style.borderRadius = '6px';
                     itemElement.style.borderLeft = '4px solid #ff6b6b';
+                    itemElement.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    itemElement.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                    
+                    // Hover effect for better interactivity
+                    itemElement.onmouseover = function() { 
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    };
+                    itemElement.onmouseout = function() { 
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    };
                     
                     // Get the first question with the lowest score for this category
                     let lowestScoreQuestion = null;
@@ -1840,9 +2012,20 @@
                     });
                     
                     itemElement.innerHTML = `
-                        <h4>${item.category} <span style="float: right; color: #ff6b6b;">${Math.round(item.score)}%</span></h4>
-                        <p><strong>Finding:</strong> ${lowestScoreQuestion.question} <br><em>Your answer:</em> ${lowestScoreQuestion.answer}</p>
-                        <p><strong>Recommendation:</strong> ${lowestScoreQuestion.explanation}</p>
+                        <h4>${item.category}</h4>
+                        <div class="score-bar-container" style="margin: 10px 0; background-color: #ffe5e5; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div class="score-bar" style="width: ${Math.round(item.score)}%; background-color: #ff6b6b; height: 100%;"></div>
+                        </div>
+                        <div class="score-label" style="text-align: right; margin-bottom: 10px; color: #ff6b6b; font-weight: bold;">
+                            ${Math.round(item.score)}%
+                        </div>
+                        <div class="finding-section" style="background-color: #fff; padding: 10px; border-radius: 4px; margin-bottom: 10px; border-left: 2px solid #ff6b6b;">
+                            <p><strong style="color: #ff6b6b;">Finding:</strong> ${lowestScoreQuestion.question}</p>
+                            <p style="font-style: italic; margin-top: 5px; color: #666;"><strong>Your answer:</strong> ${lowestScoreQuestion.answer}</p>
+                        </div>
+                        <div class="recommendation-section" style="background-color: #fff; padding: 10px; border-radius: 4px; border-left: 2px solid #ffc107;">
+                            <p><strong style="color: #ffc107;">Recommendation:</strong> ${lowestScoreQuestion.explanation}</p>
+                        </div>
                     `;
                     
                     improvementContainer.appendChild(itemElement);
@@ -1856,6 +2039,12 @@
             strengthsContainer.innerHTML = '';
             
             if (strengths.length > 0) {
+                // Add a header for the strengths section with consistent styling
+                const strengthsHeader = document.createElement('div');
+                strengthsHeader.className = 'section-header';
+                strengthsHeader.innerHTML = `<h3 class="mb-4" style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Your Strengths</h3>`;
+                strengthsContainer.appendChild(strengthsHeader);
+                
                 strengths.forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'strength-item';
@@ -1864,6 +2053,18 @@
                     itemElement.style.backgroundColor = '#f0f9ff';
                     itemElement.style.borderRadius = '6px';
                     itemElement.style.borderLeft = '4px solid #0ea5e9';
+                    itemElement.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    itemElement.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                    
+                    // Hover effect for better interactivity
+                    itemElement.onmouseover = function() { 
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    };
+                    itemElement.onmouseout = function() { 
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    };
                     
                     // Get highest score question for this category
                     let highestScoreQuestion = null;
@@ -1877,9 +2078,20 @@
                     });
                     
                     itemElement.innerHTML = `
-                        <h4>${item.category} <span style="float: right; color: #0ea5e9;">${Math.round(item.score)}%</span></h4>
-                        <p><strong>Strength:</strong> ${highestScoreQuestion.question} <br><em>Your approach:</em> ${highestScoreQuestion.answer}</p>
-                        <p><strong>Impact:</strong> ${highestScoreQuestion.explanation}</p>
+                        <h4>${item.category}</h4>
+                        <div class="score-bar-container" style="margin: 10px 0; background-color: #e5f5ff; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div class="score-bar" style="width: ${Math.round(item.score)}%; background-color: #0ea5e9; height: 100%;"></div>
+                        </div>
+                        <div class="score-label" style="text-align: right; margin-bottom: 10px; color: #0ea5e9; font-weight: bold;">
+                            ${Math.round(item.score)}%
+                        </div>
+                        <div class="strength-section" style="background-color: #fff; padding: 10px; border-radius: 4px; margin-bottom: 10px; border-left: 2px solid #0ea5e9;">
+                            <p><strong style="color: #0ea5e9;">Strength:</strong> ${highestScoreQuestion.question}</p>
+                            <p style="font-style: italic; margin-top: 5px; color: #666;"><strong>Your approach:</strong> ${highestScoreQuestion.answer}</p>
+                        </div>
+                        <div class="impact-section" style="background-color: #fff; padding: 10px; border-radius: 4px; border-left: 2px solid #16a34a;">
+                            <p><strong style="color: #16a34a;">Impact:</strong> ${highestScoreQuestion.explanation}</p>
+                        </div>
                     `;
                     
                     strengthsContainer.appendChild(itemElement);
@@ -1895,6 +2107,55 @@
             document.getElementById('quiz-results').style.display = 'none';
             document.getElementById('quiz-intro').style.display = 'block';
         }
+    </script>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tab buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Show the selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activate the clicked tab button
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedButton) {
+                    selectedButton.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Activate the first tab by default
+            const firstTabButton = tabButtons[0];
+            if (firstTabButton) {
+                const firstTabId = firstTabButton.getAttribute('data-tab');
+                switchTab(firstTabId);
+            }
+        });
+
+        // ... existing code ...
     </script>
 
     <footer>

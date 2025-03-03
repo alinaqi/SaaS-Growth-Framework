@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Webinars - ReachGenie Growth Framework</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1877F2;
+            --primary-dark: #166FE5;
+            --secondary: #42B72A;
+            --secondary-dark: #36A420;
+            --text: #333;
+            --light-bg: #F0F2F5;
+            --white: #fff;
+            --border: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            background-color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .subheader {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 1rem 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section:nth-child(odd) {
+            background-color: var(--white);
+        }
+        
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: rgba(24, 119, 242, 0.05);
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(24, 119, 242, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h2 style="margin: 0;">ReachGenie Growth Framework</h2>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link"><i class="fa-solid fa-bullseye"></i> Facebook Landing Pages</a>
+                    <a href="coldoutbound.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Cold Outbound</a>
+                    <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
+                    <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
+                    <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link active"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
+                    <a href="fullframework.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Events & Webinars</h1>
+            <p class="subheader">Build thought leadership and generate high-quality leads through educational content and networking</p>
+            <a href="#step-by-step" class="btn btn-primary">Get Started Now</a>
+            <a href="#examples" class="btn btn-outline">See Examples</a>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Events & Webinars Work</h2>
+                <p>Create meaningful connections and demonstrate expertise through live interactions</p>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Direct Engagement</h3>
+                    <p>73% of B2B executives say webinars are the best way to generate high-quality leads</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Thought Leadership</h3>
+                    <p>Position your brand as an industry expert through educational content</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Network Building</h3>
+                    <p>Create lasting relationships with prospects, customers, and partners</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Content Creation</h3>
+                    <p>Generate valuable content that can be repurposed across channels</p>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Our monthly webinar series has become our most reliable source of enterprise leads. The key was focusing on educational content that truly helps our audience solve problems, rather than just pitching our product."</p>
+                <p class="testimonial-author">— Michael Zhang, Director of Marketing at Enterprise SaaS Co</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="step-by-step" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Event Strategy Guide</h2>
+                <p>Master the key elements of successful B2B events and webinars</p>
+            </div>
+            
+            <ol class="steps">
+                <li class="step">
+                    <h3>Event Planning</h3>
+                    <p>Design engaging events that deliver value</p>
+                    <ul class="checklist">
+                        <li>Define clear event objectives and KPIs</li>
+                        <li>Choose the right format and platform</li>
+                        <li>Create compelling content agenda</li>
+                        <li>Select and prepare speakers</li>
+                        <li>Plan interactive elements</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Promotion & Registration</h3>
+                    <p>Drive attendance and engagement</p>
+                    <ul class="checklist">
+                        <li>Create multi-channel promotion plan</li>
+                        <li>Design optimized registration process</li>
+                        <li>Implement email nurture sequence</li>
+                        <li>Use social proof and testimonials</li>
+                        <li>Leverage partner networks</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Event Execution</h3>
+                    <p>Deliver exceptional experiences</p>
+                    <ul class="checklist">
+                        <li>Ensure technical readiness</li>
+                        <li>Create engaging presentations</li>
+                        <li>Facilitate audience interaction</li>
+                        <li>Capture leads and insights</li>
+                        <li>Record for future use</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Follow-Up & Optimization</h3>
+                    <p>Convert attendees into opportunities</p>
+                    <ul class="checklist">
+                        <li>Implement follow-up sequence</li>
+                        <li>Share event recordings and resources</li>
+                        <li>Score and route leads</li>
+                        <li>Analyze event metrics</li>
+                        <li>Optimize future events</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+    
+    <section id="examples" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Event Success Stories</h2>
+                <p>Learn from real examples of effective B2B events and webinars</p>
+            </div>
+            
+            <div class="card">
+                <h3>Educational Webinar Series</h3>
+                <p>A SaaS platform generated 500+ qualified leads per month through industry expert webinars.</p>
+                <p><strong>Key Success Factors:</strong></p>
+                <ul class="checklist">
+                    <li>High-value educational content</li>
+                    <li>Expert guest speakers</li>
+                    <li>Interactive Q&A sessions</li>
+                    <li>Effective follow-up process</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Virtual Conference</h3>
+                <p>An enterprise software company's virtual summit attracted 5,000 attendees and generated 200 opportunities.</p>
+                <p><strong>Success Factors:</strong></p>
+                <ul class="checklist">
+                    <li>Multiple targeted tracks</li>
+                    <li>Networking opportunities</li>
+                    <li>On-demand access</li>
+                    <li>Partner sponsorships</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Customer Showcase Event</h3>
+                <p>A B2B platform's customer story webinar series achieved 45% conversion to sales meetings.</p>
+                <p><strong>Key Tactics:</strong></p>
+                <ul class="checklist">
+                    <li>Real customer success stories</li>
+                    <li>Live product demonstrations</li>
+                    <li>Industry-specific focus</li>
+                    <li>Direct sales team involvement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 ReachGenie Growth Framework. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
