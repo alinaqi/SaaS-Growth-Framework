@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Growth Framework - Complete B2B SaaS Marketing Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1877F2;
+            --primary-dark: #166FE5;
+            --secondary: #42B72A;
+            --secondary-dark: #36A420;
+            --text: #333;
+            --light-bg: #F0F2F5;
+            --white: #fff;
+            --border: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            background-color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .subheader {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 1rem 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section:nth-child(odd) {
+            background-color: var(--white);
+        }
+        
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: rgba(24, 119, 242, 0.05);
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(24, 119, 242, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        .framework-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .framework-section h3 {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-item {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .benefit-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h2 style="margin: 0;">SaaS Growth Framework</h2>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link"><i class="fa-solid fa-bullseye"></i> Facebook Landing Pages</a>
+                    <a href="coldoutbound.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Cold Outbound</a>
+                    <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
+                    <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
+                    <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
+                    <a href="fullframework.html" class="nav-link active"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>SaaS Growth Framework</h1>
+            <p class="subheader">A comprehensive go-to-market playbook for B2B SaaS startups to systematically identify, prioritize, and execute the right marketing tactics</p>
+            <a href="#overview" class="btn btn-primary">Explore Framework</a>
+            <a href="#channels" class="btn btn-outline">See All Channels</a>
+        </div>
+    </section>
+    
+    <section id="overview" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Framework Overview</h2>
+                <p>The SaaS Growth Framework combines proven growth models to help B2B SaaS startups build a scalable demand generation engine</p>
+            </div>
+            
+            <div class="card">
+                <h3>What is the SaaS Growth Framework?</h3>
+                <p>The SaaS Growth Framework is a comprehensive go-to-market playbook that combines proven growth models – from the <em>Bullseye Framework</em> for channel focus to <em>RICE scoring</em> for prioritization and <em>Pirate Metrics (AARRR)</em> for funnel optimization.</p>
+                <p>This framework helps B2B SaaS startups systematically identify, prioritize, and execute the right marketing and demand generation tactics for their stage and goals. It provides a detailed guide covering all key areas of marketing strategy development and execution.</p>
+            </div>
+            
+            <div class="framework-section">
+                <h3>Key Components</h3>
+                <p>The SaaS Growth Framework includes comprehensive guidance on:</p>
+                
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <h4>Demand Generation Strategies</h4>
+                        <p>A complete overview of all potential marketing and demand generation activities for B2B SaaS companies.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>Channel Selection</h4>
+                        <p>Guidelines for choosing the right marketing channels based on your company stage, budget, and goals.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>Budget-Based Approaches</h4>
+                        <p>Tactics categorized for different spending levels (low-budget, mid-budget, and higher budgets).</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>Quick Wins vs. Long-Term Growth</h4>
+                        <p>Strategies to balance immediate traction with sustainable, compounding growth.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>Regional Adaptations</h4>
+                        <p>Market-specific insights showcasing what works best in different regions around the world.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <h4>Best Practices & Execution</h4>
+                        <p>Step-by-step implementation guides, common pitfalls, and optimization techniques for each channel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="channels" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Marketing Channels & Tactics</h2>
+                <p>Explore the full spectrum of demand generation channels available for B2B SaaS companies</p>
+            </div>
+            
+            <div class="card">
+                <h3>Available Channel Guides</h3>
+                <p>The SaaS Growth Framework covers a comprehensive set of marketing channels and tactics. Currently, we have detailed guides available for:</p>
+                
+                <div class="flex" style="align-items: stretch; margin-top: 2rem; flex-wrap: wrap; gap: 1.5rem;">
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Facebook Landing Pages</h3>
+                            <p>Create high-converting landing pages specifically optimized for Facebook ad traffic.</p>
+                            <a href="index.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Cold Outbound</h3>
+                            <p>Master cold email outreach with our comprehensive playbook on infrastructure, copywriting, and AI personalization.</p>
+                            <a href="coldoutbound.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Content Marketing</h3>
+                            <p>Build a strategic content marketing program that drives organic traffic, leads, and establishes thought leadership.</p>
+                            <a href="contentmarketing.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>SEO</h3>
+                            <p>Learn how to optimize your website and content for search engines to drive sustainable organic traffic.</p>
+                            <a href="seo.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Social Media</h3>
+                            <p>Develop an effective social media strategy for B2B SaaS to build brand awareness and generate leads.</p>
+                            <a href="socialmedia.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Partnerships</h3>
+                            <p>Leverage strategic partnerships to expand your reach, access new customer segments, and accelerate growth.</p>
+                            <a href="partnerships.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Viral & Referral</h3>
+                            <p>Implement viral and referral programs that turn your customers into advocates and drive organic growth.</p>
+                            <a href="viral.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Events</h3>
+                            <p>Learn how to leverage both virtual and in-person events to generate leads and build meaningful relationships.</p>
+                            <a href="events.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>Product Led Growth</h3>
+                            <p>Create a product-led growth strategy that uses your product as the primary driver of customer acquisition and expansion.</p>
+                            <a href="plg.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col" style="min-width: 250px; flex-basis: calc(33.333% - 1.5rem);">
+                        <div class="card" style="height: 100%;">
+                            <h3>PR & Media</h3>
+                            <p>Develop a PR strategy that builds credibility, increases visibility, and positions your company as an industry leader.</p>
+                            <a href="pr.html" class="btn btn-outline" style="margin-left: 0;">View Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="framework-section" style="margin-top: 3rem;">
+                <h3>Framework Methodology</h3>
+                <p>The SaaS Growth Framework integrates multiple proven methodologies to create a unified approach to B2B SaaS marketing:</p>
+                
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>The Bullseye Framework</h4>
+                    <p>A structured approach to finding your most effective marketing channels. It visualizes all options as a target with three rings:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li><strong>Outer Ring:</strong> Brainstorming all possible channels</li>
+                        <li><strong>Middle Ring:</strong> Testing the most promising ideas</li>
+                        <li><strong>Inner Ring (Bullseye):</strong> Focusing on the channel(s) that drive the most traction</li>
+                    </ul>
+                    <p>This approach ensures you invest deeper only in channels with proven traction, rather than spreading yourself too thin.</p>
+                </div>
+                
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>RICE Prioritization</h4>
+                    <p>A quantitative scoring model to prioritize marketing initiatives, where RICE stands for:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li><strong>Reach:</strong> How many people will this affect?</li>
+                        <li><strong>Impact:</strong> How much will it move the needle?</li>
+                        <li><strong>Confidence:</strong> How sure are you about the estimates?</li>
+                        <li><strong>Effort:</strong> How much work will it take?</li>
+                    </ul>
+                    <p>This helps objectively compare different marketing opportunities and focus on high-impact, efficient activities.</p>
+                </div>
+                
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h4>Pirate Metrics (AARRR)</h4>
+                    <p>A framework to ensure your marketing covers the entire customer journey:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li><strong>Acquisition:</strong> How users discover you</li>
+                        <li><strong>Activation:</strong> Their first positive experience</li>
+                        <li><strong>Retention:</strong> Repeat usage and engagement</li>
+                        <li><strong>Referral:</strong> Users recommending your product</li>
+                        <li><strong>Revenue:</strong> Monetization and growth</li>
+                    </ul>
+                    <p>This ensures a balanced approach that doesn't just focus on top-of-funnel activities but nurtures users throughout their journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Building Your Growth Engine</h2>
+            <p class="subheader" style="color: white;">Explore our specialized guides to develop a comprehensive marketing strategy</p>
+            <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+                <a href="index.html" class="btn">Facebook Landing Pages</a>
+                <a href="coldoutbound.html" class="btn">Cold Outbound</a>
+                <a href="contentmarketing.html" class="btn">Content Marketing</a>
+                <a href="seo.html" class="btn">SEO</a>
+                <a href="socialmedia.html" class="btn">Social Media</a>
+                <a href="partnerships.html" class="btn">Partnerships</a>
+                <a href="viral.html" class="btn">Viral & Referral</a>
+                <a href="events.html" class="btn">Events</a>
+                <a href="plg.html" class="btn">Product Led Growth</a>
+                <a href="pr.html" class="btn">PR & Media</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 LeanAI Ventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tab buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Show the selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activate the clicked tab button
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedButton) {
+                    selectedButton.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Activate the first tab by default
+            const firstTabButton = tabButtons[0];
+            if (firstTabButton) {
+                const firstTabId = firstTabButton.getAttribute('data-tab');
+                switchTab(firstTabId);
+            }
+        });
+    </script>
+</body>
+</html> 

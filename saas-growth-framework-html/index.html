@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Growth Framework - Facebook Landing Pages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1877F2;
+            --primary-dark: #166FE5;
+            --secondary: #42B72A;
+            --secondary-dark: #36A420;
+            --text: #333;
+            --light-bg: #F0F2F5;
+            --white: #fff;
+            --border: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            background-color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .subheader {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 1rem 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section:nth-child(odd) {
+            background-color: var(--white);
+        }
+        
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step {
+            position: relative;
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+            margin-bottom: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            font-style: normal;
+            margin-top: 1rem;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .checklist li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 0.5rem;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+        }
+        
+        .cta-section .btn {
+            margin-top: 1.5rem;
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+        
+        .cta-section .btn:hover {
+            background-color: var(--light-bg);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        .ab-test-example {
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .ab-test-columns {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .ab-test-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 1.5rem;
+        }
+
+        .ab-test-column:first-child {
+            border-right: 1px solid var(--border);
+        }
+
+        .ab-test-heading {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+        }
+        
+        .template-preview {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .template-preview img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .optimization-checklist {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .optimization-checklist h3 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Quiz styles */
+        .quiz-option {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background-color: rgba(24, 119, 242, 0.03);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(24, 119, 242, 0.05);
+        }
+        
+        .question-options {
+            margin-bottom: 25px;
+        }
+        
+        .improvement-item, .strength-item {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .improvement-item:hover, .strength-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .score-circle {
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .score-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Add new CSS classes for feedback items */
+        .improvement-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff8f8;
+            border-radius: 6px;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .strength-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f9ff;
+            border-radius: 6px;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: rgba(24, 119, 242, 0.05);
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(24, 119, 242, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h2 style="margin: 0;">SaaS Growth Framework</h2>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active"><i class="fa-solid fa-bullseye"></i> Facebook Landing Pages</a>
+                    <a href="coldoutbound.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Cold Outbound</a>
+                    <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
+                    <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
+                    <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
+                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
+                    <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
+                    <a href="fullframework.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Create High-Converting B2B SaaS Landing Pages for Facebook Ads</h1>
+            <p class="subheader">Follow our proven framework to build landing pages that convert Facebook ad traffic into qualified leads and demos</p>
+            <a href="#step-by-step" class="btn btn-primary">Get Started Now</a>
+            <a href="#examples" class="btn btn-outline">See Examples</a>
+            <div style="margin-top: 20px;">
+                <p>Looking for cold outbound strategies? <a href="coldoutbound.html" style="color: var(--primary); text-decoration: underline; font-weight: bold;">Check out our Cold Outbound Guide</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Your Landing Page Strategy Matters</h2>
+                <p>B2B SaaS companies that align their landing pages with their Facebook ads see up to 3x higher conversion rates</p>
+            </div>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <h3>Higher Conversions</h3>
+                    <p>Landing pages with clear value propositions and focused CTAs convert up to 30% better than generic pages</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Lower Ad Costs</h3>
+                    <p>Relevant, high-converting landing pages improve your Facebook Quality Score, reducing your cost per lead</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Better Qualified Leads</h3>
+                    <p>Tailored landing pages pre-qualify visitors, resulting in higher quality leads for your sales team</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Faster Optimization</h3>
+                    <p>Our framework includes A/B testing strategies that help you improve performance week over week</p>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"After implementing these landing page best practices, our demo conversion rate increased by 40% while our cost per lead dropped by 25%. The message match between our ads and landing pages made all the difference."</p>
+                <p class="testimonial-author">— Sarah Johnson, CMO at SaaSify</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="step-by-step" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Step-by-Step Guide to High-Converting Landing Pages</h2>
+                <p>Follow these proven steps to create landing pages that turn Facebook ad clicks into conversions</p>
+            </div>
+            
+            <ol class="steps">
+                <li class="step">
+                    <h3>Structure Your Landing Page for Conversion</h3>
+                    <p>Create a focused layout that guides visitors toward one primary action</p>
+                    <ul class="checklist">
+                        <li>Remove navigation menu and distractions to maintain focus</li>
+                        <li>Create a compelling headline that matches your Facebook ad</li>
+                        <li>Include a clear, benefit-driven subheadline</li>
+                        <li>Use a strong hero image that shows your product in action</li>
+                        <li>Place your primary CTA button above the fold</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Craft Compelling Copy That Converts</h3>
+                    <p>Write persuasive content that speaks directly to your B2B audience's pain points</p>
+                    <ul class="checklist">
+                        <li>Focus on benefits over features (what your solution achieves, not just what it does)</li>
+                        <li>Use concise bullet points to highlight key benefits</li>
+                        <li>Include specific, quantifiable results when possible (e.g., "Reduce reporting time by 40%")</li>
+                        <li>Address common objections with an FAQ section</li>
+                        <li>Create urgency when appropriate, but maintain B2B credibility</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Build Trust with Social Proof</h3>
+                    <p>Reduce perceived risk by showcasing credibility elements</p>
+                    <ul class="checklist">
+                        <li>Display logos of well-known clients</li>
+                        <li>Include specific testimonials from similar companies or roles</li>
+                        <li>Add relevant trust badges (security certifications, industry awards)</li>
+                        <li>Share quick case study highlights or specific results achieved</li>
+                        <li>Show total user count or other adoption metrics if impressive</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Optimize Your Form for Conversions</h3>
+                    <p>Design lead capture forms that minimize friction</p>
+                    <ul class="checklist">
+                        <li>Keep form fields to a minimum (3-5 fields for best results)</li>
+                        <li>Ask only for essential information at this stage</li>
+                        <li>Consider multi-step forms for longer forms (less intimidating)</li>
+                        <li>Use a compelling form header and CTA button text</li>
+                        <li>Add a privacy reassurance statement near the form</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Ensure Message Match with Your Facebook Ads</h3>
+                    <p>Create consistency between your ads and landing pages</p>
+                    <ul class="checklist">
+                        <li>Use the same headline and key messaging from your Facebook ad</li>
+                        <li>Maintain visual consistency with similar imagery and colors</li>
+                        <li>Deliver on the specific promise made in your ad</li>
+                        <li>Keep your offer clear and consistent (free trial, demo, etc.)</li>
+                        <li>Add UTM parameters to track Facebook ad performance</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Set Up Proper Tracking and Analytics</h3>
+                    <p>Implement tools to measure performance and enable optimization</p>
+                    <ul class="checklist">
+                        <li>Install the Facebook Pixel correctly on all pages</li>
+                        <li>Set up conversion events for key actions (form submissions, button clicks)</li>
+                        <li>Implement Facebook's Conversions API for reliable tracking</li>
+                        <li>Add Google Analytics with proper UTM parameter tracking</li>
+                        <li>Consider heatmap tools to understand user engagement</li>
+                    </ul>
+                </li>
+                
+                <li class="step">
+                    <h3>Test and Optimize for Better Results</h3>
+                    <p>Continuously improve performance with data-driven A/B testing</p>
+                    <ul class="checklist">
+                        <li>Test one element at a time (headline, form, CTA, etc.)</li>
+                        <li>Run tests long enough to achieve statistical significance</li>
+                        <li>Document what you learn from each test</li>
+                        <li>Apply winning variations across other landing pages</li>
+                        <li>Create a testing calendar to maintain momentum</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+    
+    <section id="examples" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Optimized Landing Page Examples</h2>
+                <p>See how these elements come together in high-converting B2B SaaS landing pages</p>
+            </div>
+            
+            <div class="template-preview">
+                <h3>Example: SaaS Demo Request Page</h3>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=80" alt="SaaS Demo Landing Page Example">
+                <p><strong>Why this works:</strong> This landing page has a clear headline that matches the Facebook ad messaging, a concise value proposition, and a simple form with only essential fields. The social proof section with client logos and a specific testimonial builds credibility, while the brief benefits section addresses key pain points.</p>
+            </div>
+            
+            <div class="template-preview">
+                <h3>Example: Free Trial Signup Page</h3>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80" alt="Free Trial Landing Page Example">
+                <p><strong>Why this works:</strong> This page uses a strong product screenshot in the hero section, clear "no credit card required" messaging to reduce friction, and bullet point benefits that speak to specific use cases. The form is simple, and testimonials are placed strategically near the CTA to provide that final push to convert.</p>
+            </div>
+            
+            <div class="template-preview">
+                <h3>Example: Message Match Implementation</h3>
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=500&fit=crop&q=80" alt="Message Match Example">
+                <p><strong>Why this works:</strong> This landing page demonstrates perfect message match with its corresponding Facebook ad. The headline "Automate Your Customer Support" directly mirrors the ad copy, while the hero image shows the same dashboard visualization. The CTA "Start Your Free Trial" maintains continuity from the ad's "Try Now" button. This consistency reduces cognitive dissonance and increases conversion rates by up to 25%, according to our research.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>A/B Testing Framework</h2>
+                <p>Systematically improve your landing page performance with these test ideas</p>
+            </div>
+            
+            <div class="ab-test-example">
+                <div class="ab-test-heading">Sample A/B Test: Headline Variations</div>
+                <div class="ab-test-columns">
+                    <div class="ab-test-column">
+                        <h4>Version A (Feature-Focused)</h4>
+                        <p>"All-in-One Project Management Platform for Teams"</p>
+                        <p><strong>Conversion Rate:</strong> 4.2%</p>
+                    </div>
+                    <div class="ab-test-column">
+                        <h4>Version B (Benefit-Focused)</h4>
+                        <p>"Cut Your Project Delivery Time by 30% with Automated Workflows"</p>
+                        <p><strong>Conversion Rate:</strong> 5.8% (38% improvement)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ab-test-example">
+                <div class="ab-test-heading">Sample A/B Test: CTA Button</div>
+                <div class="ab-test-columns">
+                    <div class="ab-test-column">
+                        <h4>Version A (Generic)</h4>
+                        <p>Button: "Submit" in blue</p>
+                        <p><strong>Conversion Rate:</strong> 3.9%</p>
+                    </div>
+                    <div class="ab-test-column">
+                        <h4>Version B (Specific)</h4>
+                        <p>Button: "Start My Free Demo" in green</p>
+                        <p><strong>Conversion Rate:</strong> 6.2% (59% improvement)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ab-test-example">
+                <div class="ab-test-heading">Sample A/B Test: Form Length</div>
+                <div class="ab-test-columns">
+                    <div class="ab-test-column">
+                        <h4>Version A (7 Fields)</h4>
+                        <p>Name, Email, Phone, Company, Role, Company Size, Industry</p>
+                        <p><strong>Conversion Rate:</strong> 2.8%</p>
+                    </div>
+                    <div class="ab-test-column">
+                        <h4>Version B (3 Fields)</h4>
+                        <p>Name, Email, Company</p>
+                        <p><strong>Conversion Rate:</strong> 5.1% (82% improvement)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="optimization-checklist">
+                <h3>Top Elements to Test</h3>
+                <ol>
+                    <li><strong>Headlines:</strong> Benefit-focused vs. feature-focused approaches</li>
+                    <li><strong>CTA Button:</strong> Text, color, size, and placement</li>
+                    <li><strong>Hero Image:</strong> Product screenshot vs. outcome visualization</li>
+                    <li><strong>Form Fields:</strong> Number of fields and type of information requested</li>
+                    <li><strong>Social Proof:</strong> Position and type (logos vs. testimonials)</li>
+                    <li><strong>Page Length:</strong> Short and focused vs. longer with more details</li>
+                    <li><strong>Layout:</strong> Order of sections and emphasis on certain content</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Scaling Your Landing Page Strategy</h2>
+                <p>How to efficiently create and manage multiple landing pages for different campaigns</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Templates & Modular Design</h3>
+                        <p>Create reusable templates with modular sections that can be easily customized for different campaigns and audiences.</p>
+                        <ul class="checklist">
+                            <li>Build a master template with your core sections</li>
+                            <li>Use global blocks for elements that should be consistent</li>
+                            <li>Create a library of pre-approved headlines and CTAs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Dynamic Text Replacement</h3>
+                        <p>Use dynamic content to personalize landing pages at scale without creating entirely new pages.</p>
+                        <ul class="checklist">
+                            <li>Swap headlines based on ad campaign parameters</li>
+                            <li>Customize content for different industries or roles</li>
+                            <li>Use URL parameters to pass information from ads</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>AI-Assisted Content Creation</h3>
+                        <p>Leverage AI tools to quickly generate variations of copy for different audience segments.</p>
+                        <ul class="checklist">
+                            <li>Create headline variations for different personas</li>
+                            <li>Generate benefit statements for specific use cases</li>
+                            <li>Adapt core messaging for different industries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Quality Control Process</h3>
+                        <p>Implement a system to maintain consistency and accuracy across all your landing pages.</p>
+                        <ul class="checklist">
+                            <li>Create a standard QA checklist for new pages</li>
+                            <li>Verify tracking is set up correctly on each page</li>
+                            <li>Regular audits to ensure messaging alignment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Facebook Ads Integration Guide</h2>
+                <p>Ensure seamless connection between your ads and landing pages</p>
+            </div>
+            
+            <div class="card">
+                <h3>Tracking Setup Instructions</h3>
+                <ol>
+                    <li><strong>Install Facebook Pixel:</strong> Add the base pixel code to all pages of your website, including landing pages and thank you pages.</li>
+                    <li><strong>Set Up Conversion Events:</strong> Create events for key actions like form submissions, button clicks, or page views.</li>
+                    <li><strong>Implement Conversions API:</strong> Set up server-side tracking to complement the pixel for more reliable data.</li>
+                    <li><strong>Add UTM Parameters:</strong> Append UTM tags to all your Facebook ad URLs (utm_source=facebook, utm_medium=cpc, utm_campaign=campaignname).</li>
+                    <li><strong>Create Custom Audiences:</strong> Build retargeting audiences based on landing page visitors and partial form completions.</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h3>Message Match Examples</h3>
+                
+                <div class="ab-test-example">
+                    <div class="ab-test-heading">Strong Message Match Example</div>
+                    <div class="ab-test-columns">
+                        <div class="ab-test-column">
+                            <h4>Facebook Ad</h4>
+                            <p><strong>Headline:</strong> "Cut Support Tickets by 50% with AI-Powered Help Desk"</p>
+                            <p><strong>Image:</strong> Dashboard showing reduced ticket volume</p>
+                            <p><strong>CTA:</strong> "Get Demo"</p>
+                        </div>
+                        <div class="ab-test-column">
+                            <h4>Landing Page</h4>
+                            <p><strong>Headline:</strong> "Cut Support Tickets by 50% with Our AI-Powered Help Desk"</p>
+                            <p><strong>Hero Image:</strong> Same dashboard visualization</p>
+                            <p><strong>CTA:</strong> "Get Your Personalized Demo"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem;"><strong>Why this works:</strong> The landing page directly continues the conversation started in the ad. The headline reinforces the same benefit, the visual is consistent, and the CTA is aligned with the same offer.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tracking Setup Checklist</h2>
+                <p>Essential steps to ensure proper measurement and optimization</p>
+            </div>
+            
+            <div class="optimization-checklist">
+                <h3>Facebook Pixel Implementation</h3>
+                <ol>
+                    <li><strong>Install Base Pixel:</strong> Place the Facebook pixel code in the header of all pages, including landing pages and thank you pages</li>
+                    <li><strong>Set Up Standard Events:</strong> Configure events like Lead, CompleteRegistration, or ViewContent</li>
+                    <li><strong>Custom Conversions:</strong> Create custom conversions for specific thank you pages or actions</li>
+                    <li><strong>Test Pixel:</strong> Use Facebook Pixel Helper to verify events fire correctly</li>
+                    <li><strong>Advanced Matching:</strong> Enable parameter-based matching for better tracking accuracy</li>
+                </ol>
+            </div>
+            
+            <div class="optimization-checklist">
+                <h3>Enhanced Tracking</h3>
+                <ol>
+                    <li><strong>Conversions API:</strong> Implement server-side tracking to complement pixel data</li>
+                    <li><strong>UTM Parameters:</strong> Add source, medium, campaign, content, and term parameters</li>
+                    <li><strong>Google Analytics Integration:</strong> Link Facebook and GA for cross-platform analysis</li>
+                    <li><strong>CRM Integration:</strong> Connect form submissions to your customer database</li>
+                    <li><strong>Heat Mapping:</strong> Install tools like Hotjar to analyze user behavior on landing pages</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advanced Facebook Tracking & Optimization</h2>
+                <p>Beyond the basics: Maximizing tracking accuracy and conversion measurement</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Facebook Conversions API (CAPI)</h3>
+                        <p>With growing privacy measures like browser cookie restrictions and iOS14+ opt-outs, the Pixel alone may miss conversions. Implement Conversions API to:</p>
+                        <ul class="checklist">
+                            <li>Send event data directly from your server to Facebook, bypassing browser limitations</li>
+                            <li>Improve tracking reliability by 5-10% compared to Pixel-only implementations</li>
+                            <li>Maintain accurate conversion attribution despite privacy changes</li>
+                            <li>Enable more effective audience building and campaign optimization</li>
+                            <li>Protect your data integrity for more reliable performance measurement</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Implementation:</strong> Generate an access token in Facebook Events Manager and configure your site (via partner integrations like HubSpot, WordPress plugins, or direct API implementation) to send conversion events server-side.</p>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Advanced Attribution & Measurement</h3>
+                        <p>B2B SaaS often has longer consideration cycles that standard attribution may miss:</p>
+                        <ul class="checklist">
+                            <li><strong>Cross-Device Tracking:</strong> Enable Facebook's Advanced Matching to track users across devices</li>
+                            <li><strong>Offline Conversions:</strong> Upload CRM data to attribute offline actions to Facebook ads</li>
+                            <li><strong>Extended Attribution Windows:</strong> Consider using longer attribution windows (28-day click) for B2B</li>
+                            <li><strong>View-Through Attribution:</strong> Track users who viewed your ad but converted later</li>
+                            <li><strong>Full-Funnel Metrics:</strong> Monitor not just form submissions but qualification rates and sales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Data-Driven Optimization Framework</h3>
+                <p>Use this structured approach to continually improve campaign performance:</p>
+                <div class="flex" style="gap: 1rem;">
+                    <div class="col">
+                        <ol style="padding-left: 1.5rem;">
+                            <li><strong>Baseline Reporting:</strong> Establish key metrics (CPL, conversion rate, bounce rate) for each landing page</li>
+                            <li><strong>Cross-Platform Analysis:</strong> Compare data between Facebook Ads Manager and Google Analytics</li>
+                            <li><strong>Segment Analysis:</strong> Break down performance by audience, device, ad position, and more</li>
+                            <li><strong>Landing Page Heat Maps:</strong> Use tools like Hotjar to identify engagement patterns and friction points</li>
+                        </ol>
+                    </div>
+                    <div class="col">
+                        <ol start="5" style="padding-left: 1.5rem;">
+                            <li><strong>Form Funnel Analysis:</strong> Track form starts vs. completions to identify abandonment issues</li>
+                            <li><strong>Hypothesis Development:</strong> Based on data insights, create specific A/B test hypotheses</li>
+                            <li><strong>Test Implementation:</strong> Run controlled tests on one variable at a time</li>
+                            <li><strong>Results Documentation:</strong> Maintain a testing log with all learnings, both positive and negative</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial" style="margin-top: 2rem;">
+                <p>"Implementing both Facebook Pixel and Conversions API increased our reported conversions by 8% and gave us back the optimization data we lost after iOS privacy changes. This allowed us to reduce our cost per qualified lead by nearly 20% over three months."</p>
+                <p class="testimonial-author">— David Chen, Growth Director at CloudSuite</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Message Match: Aligning Your Facebook Ads with Landing Pages</h2>
+                <p>Creating a seamless, consistent experience from ad click to conversion</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Why Message Match Matters</h3>
+                        <p>Message match between your Facebook ads and landing pages is critical for two important reasons:</p>
+                        <ul class="checklist">
+                            <li><strong>Higher Conversion Rates:</strong> When your landing page feels like a natural continuation of your ad, visitors are 3-5x more likely to convert</li>
+                            <li><strong>Lower Ad Costs:</strong> Strong message match improves your Facebook Quality Rankings, potentially reducing your cost per lead by 25%</li>
+                            <li><strong>Reduced Bounce Rates:</strong> Visitors feel confident they're in the right place when they see consistent messaging</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Key Elements to Match</h3>
+                        <p>To create strong message match between ads and landing pages:</p>
+                        <ul class="checklist">
+                            <li><strong>Headline & Copy:</strong> Use identical or very similar headline text from your ad</li>
+                            <li><strong>Visuals:</strong> Maintain consistent imagery, colors, and overall visual style</li>
+                            <li><strong>Offer:</strong> Deliver exactly what your ad promised (demo, trial, etc.)</li>
+                            <li><strong>Tone:</strong> Keep the same tone of voice and brand personality</li>
+                            <li><strong>Core Benefits:</strong> Emphasize the same key benefits highlighted in the ad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ab-test-example" style="margin-top: 2rem;">
+                <div class="ab-test-heading">Example: Strong vs. Weak Message Match</div>
+                <div class="ab-test-columns">
+                    <div class="ab-test-column">
+                        <h4>Strong Match (Higher Conversion)</h4>
+                        <p><strong>Facebook Ad Headline:</strong> "Cut Project Delivery Time by 30%"</p>
+                        <p><strong>Landing Page Headline:</strong> "Cut Your Project Delivery Time by 30% with Our Automation Tool"</p>
+                        <p><strong>Result:</strong> Visitors immediately see the same benefit and continue their journey</p>
+                    </div>
+                    <div class="ab-test-column">
+                        <h4>Weak Match (Lower Conversion)</h4>
+                        <p><strong>Facebook Ad Headline:</strong> "Cut Project Delivery Time by 30%"</p>
+                        <p><strong>Landing Page Headline:</strong> "Welcome to ProjectPro - The Complete Project Management Solution"</p>
+                        <p><strong>Result:</strong> Visitors experience cognitive dissonance and may bounce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Systematic CRO for B2B SaaS Landing Pages</h2>
+                <p>Data-driven frameworks to continuously improve conversion rates</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Pre-Launch Optimization Checklist</h3>
+                        <p>Before launching your landing page to Facebook traffic, ensure:</p>
+                        <ul class="checklist">
+                            <li><strong>Technical Performance:</strong> Page loads in under 3 seconds (desktop and mobile)</li>
+                            <li><strong>Mobile Responsiveness:</strong> All elements adapt properly to different screen sizes</li>
+                            <li><strong>Clear Value Proposition:</strong> Main benefit visible without scrolling</li>
+                            <li><strong>Form Functionality:</strong> Test all form fields and submission process</li>
+                            <li><strong>Tracking Verification:</strong> Confirm all Facebook events fire correctly</li>
+                            <li><strong>Visual Hierarchy:</strong> Eye-tracking heat map shows focus on key elements</li>
+                            <li><strong>A11Y Compliance:</strong> Page meets accessibility standards</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <h3>Conversion Barrier Audit</h3>
+                        <p>Identify and eliminate these common conversion blockers:</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Barrier Type</th>
+                                        <th>Common Issues</th>
+                                        <th>Solutions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Clarity Issues</strong></td>
+                                        <td>Vague value proposition, industry jargon</td>
+                                        <td>Use customer language, not internal terms</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Trust Deficits</strong></td>
+                                        <td>Missing credibility signals</td>
+                                        <td>Add relevant testimonials, case studies, certifications</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Technical Friction</strong></td>
+                                        <td>Slow loading, form errors</td>
+                                        <td>Optimize images, simplify forms, add inline validation</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Content Gaps</strong></td>
+                                        <td>Unanswered objections</td>
+                                        <td>Add FAQs addressing key concerns</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Scientific Testing Framework</h3>
+                        <p>Follow this process for reliable conversion optimization:</p>
+                        <ol style="padding-left: 1.5rem;">
+                            <li><strong>Data Collection:</strong> Gather analytics, heatmaps, and session recordings</li>
+                            <li><strong>Hypothesis Formation:</strong> "We believe that [change] will result in [outcome] because [rationale]"</li>
+                            <li><strong>Prioritization:</strong> Rank tests by potential impact, confidence, and implementation effort</li>
+                            <li><strong>Test Design:</strong> Create clean A/B tests focusing on one variable</li>
+                            <li><strong>Sample Size Calculation:</strong> Determine how many visitors needed for statistical significance</li>
+                            <li><strong>Implementation:</strong> Set up the test with proper tracking</li>
+                            <li><strong>Analysis:</strong> Evaluate both primary and secondary metrics</li>
+                            <li><strong>Documentation:</strong> Record all learnings, even failed tests</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <h3>Micro-Conversion Optimization</h3>
+                        <p>Track and optimize these smaller steps that lead to your main conversion:</p>
+                        <ul class="checklist">
+                            <li><strong>Form Field Interactions:</strong> Which fields cause abandonment?</li>
+                            <li><strong>Scroll Depth:</strong> Do users see your key selling points?</li>
+                            <li><strong>Video Views:</strong> Do demonstration videos hold attention?</li>
+                            <li><strong>Feature Exploration:</strong> Which benefits get the most interest?</li>
+                            <li><strong>CTA Hover Rate:</strong> Are users considering your offer?</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Tip:</strong> Set up Facebook Custom Events for these micro-conversions to build more targeted audience segments.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Beyond the Click: Post-Conversion Optimization</h3>
+                <p>Top-performing B2B landing pages optimize what happens after the initial conversion:</p>
+                <div class="flex" style="gap: 1rem;">
+                    <div class="col">
+                        <ul class="checklist">
+                            <li><strong>Thank You Page Optimization:</strong> Include next steps and secondary conversion options</li>
+                            <li><strong>Lead Qualification:</strong> Set up automated lead scoring based on form inputs</li>
+                            <li><strong>Response Time:</strong> Configure instant notifications for sales team follow-up</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="checklist">
+                            <li><strong>Tracking Journey Completion:</strong> Measure which leads reach sales qualification</li>
+                            <li><strong>Feedback Loop:</strong> Create system for sales to rate lead quality from each variation</li>
+                            <li><strong>Full-Funnel ROI:</strong> Connect landing page data to final deal closure metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial" style="margin-top: 2rem;">
+                <p>"After implementing this systematic CRO framework on our Facebook landing pages, we increased conversion rates by 37% while simultaneously improving lead quality. The most impactful changes were actually the simplest - improving message match and optimizing our form fields."</p>
+                <p class="testimonial-author">— Sarah Winters, Marketing Director at EnterpriseStack</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dynamic Personalization at Scale</h2>
+                <p>Advanced strategies to create tailored experiences for each visitor without rebuilding pages</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Dynamic Text Replacement</h3>
+                        <p>Swap out headline text, benefits, and CTAs based on the visitor's context:</p>
+                        <ul class="checklist">
+                            <li>Automatically insert the industry name from ad targeting</li>
+                            <li>Customize social proof to show relevant testimonials</li>
+                            <li>Adjust messaging based on whether visitor is first-time or returning</li>
+                            <li>Personalize CTAs based on the referral source</li>
+                            <li>Implement with URL parameters from your Facebook ads</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Funnel-Stage Optimization</h3>
+                        <p>Adapt your landing pages based on where visitors are in the buyer's journey:</p>
+                        <ul class="checklist">
+                            <li><strong>Top-of-funnel:</strong> Focus on problem education and lighter CTAs</li>
+                            <li><strong>Middle-of-funnel:</strong> Highlight specific solution benefits and case studies</li>
+                            <li><strong>Bottom-of-funnel:</strong> Address final objections with guarantees and social proof</li>
+                            <li><strong>Retargeting:</strong> Show more specific product features visitors previously explored</li>
+                            <li>Use Facebook's Custom Audiences to segment and target appropriately</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>AI-Powered Content Personalization</h3>
+                <p>Scale your landing page personalization efforts with AI tools that:</p>
+                <div class="flex" style="gap: 1rem;">
+                    <div class="col">
+                        <ul class="checklist">
+                            <li>Generate multiple headline variations for A/B testing</li>
+                            <li>Create tailored benefit statements for different audience segments</li>
+                            <li>Analyze visitor behavior to identify highest-converting content patterns</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="checklist">
+                            <li>Adapt messaging for different levels of product awareness</li>
+                            <li>Dynamically adjust content based on engagement signals</li>
+                            <li>Scale your landing page strategy without proportionally increasing workload</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Optimizing for Cognitive Load & User Experience</h2>
+                <p>Design principles that reduce friction and guide visitors to convert</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>The "Blink Test" Principle</h3>
+                        <p>Visitors decide within 3-5 seconds whether to stay on your landing page. To pass this critical test:</p>
+                        <ul class="checklist">
+                            <li>Place your strongest value proposition in the headline</li>
+                            <li>Use visual hierarchy to direct attention to key elements</li>
+                            <li>Ensure the page instantly communicates relevance to the ad</li>
+                            <li>Make the primary action obvious and compelling</li>
+                            <li>Keep the hero section clean and focused with minimal distractions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Reducing Cognitive Load</h3>
+                        <p>B2B buyers face information overload. Make your page easier to process by:</p>
+                        <ul class="checklist">
+                            <li>Removing navigation menus and distracting elements</li>
+                            <li>Using ample white space to create visual breathing room</li>
+                            <li>Breaking information into scannable chunks with clear headings</li>
+                            <li>Limiting choices and focusing on one primary CTA</li>
+                            <li>Using bullet points instead of dense paragraphs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Psychological Triggers</h3>
+                        <p>Leverage these principles to encourage action:</p>
+                        <ul class="checklist">
+                            <li><strong>Social Proof:</strong> Show testimonials from similar roles/companies</li>
+                            <li><strong>Authority:</strong> Display relevant certifications or partnerships</li>
+                            <li><strong>Reciprocity:</strong> Offer valuable information before asking for action</li>
+                            <li><strong>Loss Aversion:</strong> Highlight what they miss by not using your solution</li>
+                            <li><strong>Clarity to Reduce Anxiety:</strong> Address objections proactively</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Mobile Optimization</h3>
+                        <p>With increasing B2B mobile browsing, ensure your pages are mobile-friendly:</p>
+                        <ul class="checklist">
+                            <li>Design for mobile-first with touch-friendly elements</li>
+                            <li>Ensure fast loading (under 3 seconds) on mobile devices</li>
+                            <li>Make forms simpler and easier to complete on smaller screens</li>
+                            <li>Test the full conversion path on multiple devices</li>
+                            <li>Keep key information and CTAs visible without scrolling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">How many landing pages should I create for my Facebook ad campaigns?</div>
+                    <div class="faq-answer">
+                        <p>Ideally, you should create a dedicated landing page for each distinct audience segment or campaign objective. At minimum, you should have separate landing pages for different products or key value propositions. For example, if you're targeting both marketing managers and IT directors, create tailored pages for each that speak to their specific challenges and needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What's the ideal landing page length for B2B SaaS?</div>
+                    <div class="faq-answer">
+                        <p>The ideal length depends on your offer complexity and audience familiarity. For simpler offers or warm audiences (like retargeting), shorter pages often work better. For complex solutions or cold traffic, longer pages that address multiple objections may perform better. The key is to include all information necessary to make a decision without overwhelming the visitor. Testing different lengths with your specific audience is the best approach.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can I improve my Facebook ad quality score with landing pages?</div>
+                    <div class="faq-answer">
+                        <p>Facebook's algorithm rewards ads that provide a good user experience, including post-click. To improve quality scores: 1) Ensure strong message match between ads and landing pages, 2) Create fast-loading pages with mobile-responsive design, 3) Set up proper tracking to measure engagement, and 4) Design pages that encourage meaningful interactions. When visitors have a positive experience and convert, Facebook sees your ad as more relevant, potentially lowering your costs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What information should I collect on my landing page forms?</div>
+                    <div class="faq-answer">
+                        <p>For B2B SaaS, focus on collecting only essential information needed to qualify leads and follow up effectively. Essential fields typically include name, business email, and company name. Depending on your sales process, you might also include company size or industry. Additional fields like phone number, role, or specific challenges can be valuable but may reduce conversion rates. Consider using progressive profiling to collect additional information after the initial conversion.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often should I update my landing pages?</div>
+                    <div class="faq-answer">
+                        <p>Review landing page performance at least monthly, but implement A/B tests continually. Update pages whenever: 1) Your product features or positioning changes, 2) Your A/B tests reveal better-performing variations, 3) Your conversion rates drop significantly, or 4) You notice changes in competitor messaging or market conditions. High-traffic pages deserve more frequent optimization attention than lower-traffic ones.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I create landing pages for different stages of the funnel?</div>
+                    <div class="faq-answer">
+                        <p>Adjust your landing pages based on audience awareness and funnel stage: For top-of-funnel (cold traffic), focus more on problem education and establishing credibility with lighter conversion asks like downloading a guide. For middle-of-funnel, emphasize your unique solution approach and specific benefits with case studies and product details. For bottom-of-funnel (warm retargeting), focus on removing final objections with testimonials, guarantees, and clear next steps like requesting a demo or starting a free trial.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can I reduce cognitive load on my landing pages?</div>
+                    <div class="faq-answer">
+                        <p>B2B SaaS buyers have limited attention, so minimize cognitive load by: 1) Using a clean, distraction-free design with ample white space, 2) Breaking information into digestible sections with clear headings, 3) Using bullet points for key benefits instead of dense paragraphs, 4) Removing navigation menus to maintain focus, 5) Using a clear visual hierarchy that guides the eye to the most important elements, and 6) Limiting the number of choices or options. The "blink test" is crucial - visitors should understand your value proposition within 3-5 seconds.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is dynamic text replacement and how can I use it?</div>
+                    <div class="faq-answer">
+                        <p>Dynamic text replacement (DTR) allows you to personalize landing pages at scale by automatically swapping certain text elements based on parameters like the referring URL, visitor location, or ad campaign. For example, if you target multiple industries with Facebook ads, your landing page headline could automatically insert the industry name: "The #1 Analytics Platform for {industry}". This creates a more personalized experience without building separate pages. Most landing page platforms support DTR using URL parameters, allowing you to match your ad messaging precisely and improve relevance scores and conversion rates.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do I implement effective message match between my Facebook ads and landing pages?</div>
+                    <div class="faq-answer">
+                        <p>Message match is critical for both conversion rates and Facebook ad quality scores. Ensure your landing page feels like a natural continuation of your ad by: 1) Using the same headline and key messaging from your Facebook ad, 2) Maintaining visual consistency with similar imagery, colors, and branding, 3) Delivering on the specific promise made in your ad, 4) Keeping your offer clear and consistent across both touchpoints, and 5) Testing different combinations of ad-to-landing page experiences. Studies show that dedicated, message-matched landing pages can deliver conversion rates 3-5x higher than sending traffic to generic pages.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What A/B testing elements have the biggest impact on conversion rates?</div>
+                    <div class="faq-answer">
+                        <p>The highest-impact elements to test are typically: 1) Headlines (benefit-focused vs. feature-focused approaches), 2) CTA buttons (text, color, size, and placement), 3) Form length and fields (minimal fields often convert better), 4) Hero imagery (product screenshots vs. outcome visualization), 5) Social proof positioning (logos vs. testimonials), and 6) Page length (short and focused vs. longer with more details). Start by testing one element at a time with clear hypotheses, run tests long enough to achieve statistical significance, and document what you learn. For B2B SaaS specifically, value proposition messaging and form simplification often yield the largest conversion improvements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can I leverage AI for landing page optimization?</div>
+                    <div class="faq-answer">
+                        <p>AI can significantly improve your landing page strategy in several ways: 1) Use AI writing tools to quickly generate and test multiple headline and copy variations based on proven frameworks, 2) Implement AI-powered personalization that dynamically adjusts content based on visitor behavior or data, 3) Utilize AI analytics tools to identify conversion patterns and opportunities that might not be apparent, 4) Create scalable content for multiple audience segments by having AI adapt your core messaging for different personas or industries, and 5) Use AI-powered heatmaps and session recordings to identify usability issues. These tools help you optimize faster and create more personalized experiences without multiplying your workload.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Landing Page Effectiveness Quiz</h2>
+                <p>Assess your landing page against research-backed best practices and get personalized recommendations</p>
+            </div>
+            
+            <div class="card" id="landing-page-quiz">
+                <div id="quiz-intro">
+                    <p>Answer the following questions about your landing page to receive a score and personalized recommendations for improvement. This assessment is based on our extensive research into high-converting B2B SaaS landing pages for Facebook ads.</p>
+                    <button class="btn btn-primary" onclick="startQuiz()">Start Assessment</button>
+                </div>
+                
+                <div id="quiz-questions" style="display: none;">
+                    <div class="progress-container" style="background-color: #f0f0f0; height: 8px; border-radius: 4px; margin-bottom: 20px;">
+                        <div id="quiz-progress" style="background-color: var(--primary); height: 8px; border-radius: 4px; width: 0%;"></div>
+                    </div>
+                    <h3 id="question-text">Question</h3>
+                    <div id="question-options" class="question-options">
+                        <!-- Options will be inserted here -->
+                    </div>
+                    <div class="quiz-nav-buttons" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                        <button id="prev-button" class="btn btn-outline" onclick="prevQuestion()" style="display: none;">Previous</button>
+                        <button id="next-button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-results" style="display: none;">
+                    <h3>Your Landing Page Score</h3>
+                    
+                    <!-- New Results Overview Section -->
+                    <div id="results-overview"></div>
+                    
+                    <div class="score-container" style="text-align: center; margin: 30px 0; display: none;">
+                        <div class="score-circle" style="position: relative; width: 150px; height: 150px; border-radius: 50%; background: #f0f0f0; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                            <div id="score-display" style="font-size: 48px; font-weight: bold; color: var(--primary);"></div>
+                        </div>
+                        <p id="score-label" style="margin-top: 15px; font-size: 18px; font-weight: bold;"></p>
+                    </div>
+                    
+                    <div id="feedback-summary" style="margin-bottom: 20px; display: none;"></div>
+                    
+                    <h4>Areas for Improvement</h4>
+                    <div id="improvement-areas"></div>
+                    
+                    <h4>Strengths to Maintain</h4>
+                    <div id="strengths-areas"></div>
+                    
+                    <div style="margin-top: 30px;">
+                        <button class="btn btn-primary" onclick="restartQuiz()">Retake Assessment</button>
+                        <a href="#step-by-step" class="btn btn-outline" onclick="scrollToElement('step-by-step'); return false;">See Improvement Guide</a>
+                    </div>
+                    
+                    <!-- Quick Jump Links -->
+                    <div class="quick-links" style="margin-top: 30px; background-color: #f8f9fa; padding: 15px; border-radius: 8px;">
+                        <p style="font-weight: bold; margin-bottom: 10px;">Jump to Section:</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <button class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('improvement-areas')">Areas for Improvement</button>
+                            <button class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('strengths-areas')">Strengths</button>
+                            <a href="#step-by-step" class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('step-by-step'); return false;">Improvement Guide</a>
+                            <a href="#best-practices" class="btn btn-outline" style="font-size: 14px; padding: 5px 10px;" onclick="scrollToElement('best-practices'); return false;">Best Practices</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Resources & Examples</h2>
+                <p>Explore additional research and examples to help optimize your landing pages</p>
+            </div>
+            
+            <div class="flex">
+                <div class="col">
+                    <div class="card">
+                        <h3>Industry Best Practices</h3>
+                        <p>Browse these resources to learn more about landing page optimization:</p>
+                        <ul class="checklist">
+                            <li><a href="#unbounce-example" onclick="showIframe('unbounce-iframe')">Unbounce: Essential Elements of a High-Converting Landing Page</a></li>
+                            <li><a href="#instapage-example" onclick="showIframe('instapage-iframe')">Instapage: Demo Landing Pages That Get Prospects to Act</a></li>
+                            <li><a href="#rivia-example" onclick="showIframe('rivia-iframe')">Rivia.ai: "Book a Demo" Page Examples</a></li>
+                            <li><a href="#databox-example" onclick="showIframe('databox-iframe')">Databox: Landing Page Best Practices for B2B SaaS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card">
+                        <h3>Testing Frameworks</h3>
+                        <p>Learn about A/B testing and optimization techniques:</p>
+                        <ul class="checklist">
+                            <li><a href="#profitable-example" onclick="showIframe('profitable-iframe')">Profitable Media: A/B Testing Strategies</a></li>
+                            <li><a href="#apexure-example" onclick="showIframe('apexure-iframe')">Apexure: Landing Page Experiments to Try</a></li>
+                            <li><a href="#unbounce-dynamic-example" onclick="showIframe('unbounce-dynamic-iframe')">Unbounce: Dynamic Landing Page Examples</a></li>
+                            <li><a href="#conversion-api-example" onclick="showIframe('conversion-api-iframe')">Meta Conversions API Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="iframe-container" style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: none;">
+                <div style="background-color: var(--primary); color: white; padding: 0.75rem 1.5rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+                    <span id="iframe-title">Resource Preview</span>
+                    <button onclick="hideIframe()" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">×</button>
+                </div>
+                <iframe id="unbounce-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://unbounce.com/landing-pages/elements-of-a-winning-landing-page/"></iframe>
+                <iframe id="instapage-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://instapage.com/blog/demo-landing-pages"></iframe>
+                <iframe id="rivia-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://www.rivia.ai/blog/request-a-demo-page-examples-and-best-practices"></iframe>
+                <iframe id="databox-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://databox.com/landing-page-best-practices"></iframe>
+                <iframe id="profitable-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://www.profitablemedia.com/optimizing-user-experience-a-b-testing-strategies-for-high-conversion-landing-pages/"></iframe>
+                <iframe id="apexure-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://www.apexure.com/blog/landing-page-experiments"></iframe>
+                <iframe id="unbounce-dynamic-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://unbounce.com/landing-page-examples/dynamic-landing-pages/"></iframe>
+                <iframe id="conversion-api-iframe" style="width: 100%; height: 600px; border: none; display: none;" src="https://www.customerlabs.com/blog/facebook-conversions-api/"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function showIframe(iframeId) {
+            // Hide all iframes
+            const iframes = document.querySelectorAll('#iframe-container iframe');
+            iframes.forEach(iframe => {
+                iframe.style.display = 'none';
+            });
+            
+            // Show the selected iframe
+            document.getElementById(iframeId).style.display = 'block';
+            
+            // Show the container
+            document.getElementById('iframe-container').style.display = 'block';
+            
+            // Update the title
+            const linkText = event.target.textContent;
+            document.getElementById('iframe-title').textContent = linkText;
+            
+            // Prevent default link behavior
+            event.preventDefault();
+            
+            // Scroll to the iframe
+            document.getElementById('iframe-container').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function hideIframe() {
+            document.getElementById('iframe-container').style.display = 'none';
+        }
+    </script>
+
+    <script>
+        // Landing Page Assessment Quiz JavaScript
+        const quizQuestions = [
+            {
+                question: "Does your landing page have a clear, single conversion goal (e.g., form submission, demo request)?",
+                options: [
+                    { text: "Yes, there is one primary conversion action", score: 10, category: "focus" },
+                    { text: "Mostly, but we have a couple of different CTAs", score: 5, category: "focus" },
+                    { text: "No, we have multiple different conversion options", score: 0, category: "focus" }
+                ],
+                explanation: {
+                    high: "Great! A focused landing page with a single goal typically converts better. Research shows pages with a single focus can convert 2-3x better than multi-purpose pages.",
+                    medium: "Having multiple CTAs can create decision fatigue. Consider testing a version with just one primary conversion action.",
+                    low: "Research shows that landing pages with multiple conversion goals typically underperform. Focus on a single primary action to improve results."
+                }
+            },
+            {
+                question: "How well does your landing page headline match the messaging in your Facebook ads?",
+                options: [
+                    { text: "Perfect match - we use identical or very similar headlines", score: 10, category: "message_match" },
+                    { text: "Good match - similar theme but different wording", score: 5, category: "message_match" },
+                    { text: "Different - our landing page has a generic headline", score: 0, category: "message_match" }
+                ],
+                explanation: {
+                    high: "Excellent! Message match is critical for both conversion rates and ad quality scores. This consistency can reduce bounce rates by 10-15%.",
+                    medium: "While thematic consistency is good, testing identical headlines could further improve your conversion rates and Facebook Quality Scores.",
+                    low: "Poor message match can cause 'cognitive dissonance' and increase bounce rates. Our research shows aligned headlines can improve conversions by 25-40%."
+                }
+            },
+            {
+                question: "Do you maintain visual consistency between your Facebook ads and landing pages?",
+                options: [
+                    { text: "Yes - we use the same imagery, colors, and design elements", score: 10, category: "message_match" },
+                    { text: "Somewhat - we keep the same color scheme but use different images", score: 5, category: "message_match" },
+                    { text: "No - our ads and landing pages look quite different", score: 0, category: "message_match" }
+                ],
+                explanation: {
+                    high: "Perfect! Visual consistency helps visitors immediately know they're in the right place. This can improve Quality Scores and reduce bounce rates.",
+                    medium: "Color consistency helps, but using the same images from your ads can further reinforce the connection and reduce bounce rates.",
+                    low: "Visual discontinuity can confuse visitors. Try to maintain consistent imagery between ads and landing pages to improve user experience and conversions."
+                }
+            },
+            {
+                question: "How long does it take your landing page to load?",
+                options: [
+                    { text: "Under 2 seconds", score: 10, category: "performance" },
+                    { text: "2-4 seconds", score: 5, category: "performance" },
+                    { text: "More than 4 seconds", score: 0, category: "performance" }
+                ],
+                explanation: {
+                    high: "Excellent! Fast loading times are critical. Research shows each second of delay can reduce conversions by 7%.",
+                    medium: "Good, but there's room for improvement. Try optimizing images and reducing scripts to get under 2 seconds for best results.",
+                    low: "Slow loading pages significantly impact conversion rates. Users typically abandon pages that take longer than 3 seconds to load."
+                }
+            },
+            {
+                question: "How many fields does your lead capture form contain?",
+                options: [
+                    { text: "3-5 essential fields", score: 10, category: "form" },
+                    { text: "6-9 fields", score: 5, category: "form" },
+                    { text: "10+ fields", score: 0, category: "form" }
+                ],
+                explanation: {
+                    high: "Perfect! Short forms with only essential fields typically convert best for initial lead capture in B2B SaaS.",
+                    medium: "Your form might be creating unnecessary friction. Testing a shorter form could increase conversion rates by 50% or more.",
+                    low: "Research shows that long forms can reduce submission rates by 50-75%. Consider using progressive profiling to collect additional information after the initial conversion."
+                }
+            },
+            {
+                question: "What types of social proof do you include on your landing page?",
+                options: [
+                    { text: "Multiple types (testimonials, logos, case studies, reviews)", score: 10, category: "trust" },
+                    { text: "One or two types of social proof", score: 5, category: "trust" },
+                    { text: "None or very limited social proof", score: 0, category: "trust" }
+                ],
+                explanation: {
+                    high: "Great job! Diverse social proof builds trust and can increase conversions by 30-50% according to several studies.",
+                    medium: "Adding additional types of social proof could further increase visitor trust and conversion rates.",
+                    low: "Adding testimonials, client logos, and other trust signals could significantly improve your conversion rates, especially for B2B SaaS offerings."
+                }
+            },
+            {
+                question: "Does your landing page pass the '5-second test' (visitors can quickly understand your value proposition)?",
+                options: [
+                    { text: "Yes - the core value is immediately clear", score: 10, category: "clarity" },
+                    { text: "Somewhat - it takes some reading to understand", score: 5, category: "clarity" },
+                    { text: "No - it's complex or hard to quickly understand", score: 0, category: "clarity" }
+                ],
+                explanation: {
+                    high: "Excellent! Clear, immediate value communication is crucial. Visitors typically decide within 3-5 seconds whether to stay or leave.",
+                    medium: "Try simplifying your headline and hero section to communicate value faster. This could reduce bounce rates significantly.",
+                    low: "Visitors make snap judgments in 3-5 seconds. Simplify your value proposition and make it immediately visible to improve engagement."
+                }
+            },
+            {
+                question: "Is your landing page fully optimized for mobile devices?",
+                options: [
+                    { text: "Yes - designed for mobile-first with touch-friendly elements", score: 10, category: "mobile" },
+                    { text: "Mostly - responsive but some elements aren't optimized", score: 5, category: "mobile" },
+                    { text: "No - not fully responsive or has usability issues on mobile", score: 0, category: "mobile" }
+                ],
+                explanation: {
+                    high: "Great job! With over 50% of B2B research happening on mobile, your mobile-optimized design is critical for success.",
+                    medium: "While responsiveness is a good start, true mobile optimization can further improve your conversion rates from mobile visitors.",
+                    low: "With the majority of Facebook users on mobile devices, a fully mobile-optimized experience is essential. This could be severely limiting your conversions."
+                }
+            },
+            {
+                question: "How do you track conversions from your Facebook ads?",
+                options: [
+                    { text: "Both Facebook Pixel AND Conversions API with proper events", score: 10, category: "tracking" },
+                    { text: "Facebook Pixel only with standard events", score: 5, category: "tracking" },
+                    { text: "Basic tracking or no specific conversion tracking", score: 0, category: "tracking" }
+                ],
+                explanation: {
+                    high: "Perfect implementation! Using both Pixel and Conversions API ensures reliable tracking despite privacy changes and browser limitations.",
+                    medium: "While the Pixel is good, implementing the Conversions API can recover 5-10% of conversions that might be missed due to blockers and privacy changes.",
+                    low: "Proper conversion tracking is essential for optimization. Without it, Facebook's algorithm can't effectively optimize for conversions."
+                }
+            },
+            {
+                question: "How do you handle cognitive load on your landing page?",
+                options: [
+                    { text: "Carefully minimized - clean design, focused content, clear hierarchy", score: 10, category: "ux" },
+                    { text: "Somewhat managed - reasonable amount of content but could be cleaner", score: 5, category: "ux" },
+                    { text: "Heavy - lots of information, elements, and options", score: 0, category: "ux" }
+                ],
+                explanation: {
+                    high: "Excellent! Low cognitive load makes it easier for visitors to process information and make decisions, improving conversion rates.",
+                    medium: "Reducing visual clutter and simplifying your content could further improve engagement and conversion rates.",
+                    low: "High cognitive load can overwhelm visitors and reduce conversion rates significantly. Simplify your design and focus on key messages."
+                }
+            },
+            {
+                question: "Do you use any form of dynamic personalization on your landing pages?",
+                options: [
+                    { text: "Yes - dynamic text replacement or content personalization based on audience", score: 10, category: "personalization" },
+                    { text: "Limited - separate pages for different audience segments", score: 5, category: "personalization" },
+                    { text: "No - same generic page for all visitors", score: 0, category: "personalization" }
+                ],
+                explanation: {
+                    high: "Great use of advanced techniques! Personalization can increase conversion rates by 15-20% according to multiple studies.",
+                    medium: "Segment-specific pages are good, but dynamic personalization could further improve relevance and conversion rates.",
+                    low: "Implementing even basic dynamic text replacement could significantly improve your conversion rates by making content more relevant to each visitor."
+                }
+            },
+            {
+                question: "Do you regularly A/B test different elements of your landing pages?",
+                options: [
+                    { text: "Yes - ongoing systematic testing program with clear hypotheses", score: 10, category: "optimization" },
+                    { text: "Occasionally - periodic tests when we have time", score: 5, category: "optimization" },
+                    { text: "Rarely or never - we don't regularly test variations", score: 0, category: "optimization" }
+                ],
+                explanation: {
+                    high: "Excellent approach! Systematic testing is the most reliable way to continuously improve conversion rates over time.",
+                    medium: "More regular testing could help you identify significant conversion improvements you're currently missing.",
+                    low: "Without systematic testing, you're likely leaving significant conversion opportunities on the table. Even simple A/B tests can yield 20-30% improvements."
+                }
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userAnswers = [];
+        
+        function startQuiz() {
+            document.getElementById('quiz-intro').style.display = 'none';
+            document.getElementById('quiz-questions').style.display = 'block';
+            showQuestion(0);
+        }
+        
+        function showQuestion(index) {
+            if (index < 0 || index >= quizQuestions.length) return;
+            
+            const question = quizQuestions[index];
+            document.getElementById('question-text').textContent = question.question;
+            
+            // Update progress bar
+            const progressPercentage = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progressPercentage}%`;
+            
+            // Clear and add options
+            const optionsContainer = document.getElementById('question-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, optionIndex) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                
+                // Check if this option was previously selected
+                if (userAnswers[index] === optionIndex) {
+                    optionElement.classList.add('selected');
+                }
+                
+                optionElement.onclick = function() {
+                    // Clear all selections
+                    document.querySelectorAll('.quiz-option').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    
+                    // Save the answer
+                    userAnswers[index] = optionIndex;
+                    
+                    // Enable next button if it was disabled
+                    document.getElementById('next-button').disabled = false;
+                };
+                
+                optionElement.textContent = option.text;
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-button').style.display = index > 0 ? 'block' : 'none';
+            document.getElementById('next-button').textContent = index === quizQuestions.length - 1 ? 'See Results' : 'Next';
+            
+            // Disable next button if no answer selected
+            document.getElementById('next-button').disabled = userAnswers[index] === undefined;
+            
+            currentQuestion = index;
+        }
+        
+        function nextQuestion() {
+            if (currentQuestion === quizQuestions.length - 1) {
+                // Show results
+                showResults();
+            } else {
+                showQuestion(currentQuestion + 1);
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+        
+        // Add smooth scrolling for better navigation
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function showResults() {
+            document.getElementById('quiz-questions').style.display = 'none';
+            document.getElementById('quiz-results').style.display = 'block';
+            
+            // Calculate score
+            let totalScore = 0;
+            let maxPossibleScore = quizQuestions.length * 10;
+            let categoryScores = {};
+            
+            quizQuestions.forEach((question, index) => {
+                if (userAnswers[index] !== undefined) {
+                    const selectedOption = question.options[userAnswers[index]];
+                    totalScore += selectedOption.score;
+                    
+                    // Track category scores
+                    const category = selectedOption.category;
+                    if (!categoryScores[category]) {
+                        categoryScores[category] = { score: 0, total: 0, questions: [] };
+                    }
+                    categoryScores[category].score += selectedOption.score;
+                    categoryScores[category].total += 10;
+                    categoryScores[category].questions.push({
+                        question: question.question,
+                        answer: selectedOption.text,
+                        score: selectedOption.score,
+                        explanation: selectedOption.score >= 8 ? question.explanation.high : 
+                                    selectedOption.score >= 5 ? question.explanation.medium : 
+                                    question.explanation.low
+                    });
+                }
+            });
+            
+            // Calculate percentage
+            const scorePercentage = Math.round((totalScore / maxPossibleScore) * 100);
+            document.getElementById('score-display').textContent = scorePercentage;
+            
+            // Create a summary card at the top
+            const resultsOverview = document.getElementById('results-overview');
+            if (resultsOverview) {
+                // Count strengths and improvement areas
+                let strengths = [];
+                let improvements = [];
+                
+                for (const category in categoryScores) {
+                    const categoryData = categoryScores[category];
+                    const categoryPercentage = (categoryData.score / categoryData.total) * 100;
+                    
+                    const categoryNames = {
+                        focus: "Page Focus & Structure",
+                        message_match: "Ad-to-Page Consistency",
+                        performance: "Page Performance",
+                        form: "Form Design",
+                        trust: "Trust & Social Proof",
+                        clarity: "Value Proposition Clarity",
+                        mobile: "Mobile Optimization",
+                        tracking: "Conversion Tracking",
+                        ux: "User Experience & Cognitive Load",
+                        personalization: "Personalization",
+                        optimization: "Testing & Optimization"
+                    };
+                    
+                    const categoryName = categoryNames[category] || category;
+                    
+                    if (categoryPercentage >= 70) {
+                        strengths.push({
+                            category: categoryName,
+                            score: categoryPercentage
+                        });
+                    } else {
+                        improvements.push({
+                            category: categoryName,
+                            score: categoryPercentage
+                        });
+                    }
+                }
+                
+                // Sort
+                improvements.sort((a, b) => a.score - b.score);
+                strengths.sort((a, b) => b.score - a.score);
+                
+                // Define assessment level based on score
+                let assessmentLevel = "";
+                let assessmentColor = "";
+                let assessmentDescription = "";
+                
+                if (scorePercentage >= 90) {
+                    assessmentLevel = "Excellent";
+                    assessmentColor = "#16a34a";
+                    assessmentDescription = "Your landing page follows best practices for conversion optimization.";
+                } else if (scorePercentage >= 70) {
+                    assessmentLevel = "Good";
+                    assessmentColor = "#0ea5e9";
+                    assessmentDescription = "Your landing page has several strengths with some areas that could be improved.";
+                } else if (scorePercentage >= 50) {
+                    assessmentLevel = "Needs Improvement";
+                    assessmentColor = "#ffc107";
+                    assessmentDescription = "Your landing page has significant room for improvement in several key areas.";
+                } else {
+                    assessmentLevel = "Requires Attention";
+                    assessmentColor = "#ff6b6b";
+                    assessmentDescription = "Your landing page needs substantial improvements to optimize conversion rates.";
+                }
+                
+                // Build the summary card
+                resultsOverview.innerHTML = `
+                    <div class="summary-card" style="background-color: white; border-radius: 8px; padding: 20px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 80px; height: 80px; border-radius: 50%; background-color: ${assessmentColor}; display: flex; justify-content: center; align-items: center; margin-right: 20px;">
+                                <span style="color: white; font-size: 24px; font-weight: bold;">${scorePercentage}%</span>
+                            </div>
+                            <div>
+                                <h3 style="color: ${assessmentColor}; margin-bottom: 5px;">${assessmentLevel}</h3>
+                                <p>${assessmentDescription}</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                            <div style="flex: 1; padding-right: 10px;">
+                                <h4 style="color: #0ea5e9; margin-bottom: 10px;">Strengths (${strengths.length})</h4>
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    ${strengths.slice(0, 3).map(item => `<li>${item.category}</li>`).join('')}
+                                    ${strengths.length > 3 ? `<li>+ ${strengths.length - 3} more...</li>` : ''}
+                                </ul>
+                            </div>
+                            <div style="flex: 1; padding-left: 10px; border-left: 1px solid #eee;">
+                                <h4 style="color: #ff6b6b; margin-bottom: 10px;">Areas to Improve (${improvements.length})</h4>
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    ${improvements.slice(0, 3).map(item => `<li>${item.category}</li>`).join('')}
+                                    ${improvements.length > 3 ? `<li>+ ${improvements.length - 3} more...</li>` : ''}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Process categories for detailed display
+            let strengths = [];
+            let improvements = [];
+            
+            for (const category in categoryScores) {
+                const categoryData = categoryScores[category];
+                const categoryPercentage = (categoryData.score / categoryData.total) * 100;
+                
+                const categoryNames = {
+                    focus: "Page Focus & Structure",
+                    message_match: "Ad-to-Page Consistency",
+                    performance: "Page Performance",
+                    form: "Form Design",
+                    trust: "Trust & Social Proof",
+                    clarity: "Value Proposition Clarity",
+                    mobile: "Mobile Optimization",
+                    tracking: "Conversion Tracking",
+                    ux: "User Experience & Cognitive Load",
+                    personalization: "Personalization",
+                    optimization: "Testing & Optimization"
+                };
+                
+                const categoryName = categoryNames[category] || category;
+                
+                if (categoryPercentage >= 70) {
+                    // This is a strength
+                    strengths.push({
+                        category: categoryName,
+                        score: categoryPercentage,
+                        data: categoryData
+                    });
+                } else {
+                    // This is an area for improvement
+                    improvements.push({
+                        category: categoryName,
+                        score: categoryPercentage,
+                        data: categoryData
+                    });
+                }
+            }
+            
+            // Sort by score (ascending for improvements, descending for strengths)
+            improvements.sort((a, b) => a.score - b.score);
+            strengths.sort((a, b) => b.score - a.score);
+            
+            // Build improvements HTML
+            const improvementContainer = document.getElementById('improvement-areas');
+            improvementContainer.innerHTML = '';
+            
+            if (improvements.length > 0) {
+                // Add a header for the improvements section with consistent styling
+                const improvementHeader = document.createElement('div');
+                improvementHeader.className = 'section-header';
+                improvementHeader.innerHTML = `<h3 class="mb-4" style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Areas for Improvement</h3>`;
+                improvementContainer.appendChild(improvementHeader);
+                
+                improvements.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'improvement-item';
+                    itemElement.style.marginBottom = '20px';
+                    itemElement.style.padding = '15px';
+                    itemElement.style.backgroundColor = '#fff8f8';
+                    itemElement.style.borderRadius = '6px';
+                    itemElement.style.borderLeft = '4px solid #ff6b6b';
+                    itemElement.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    itemElement.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                    
+                    // Hover effect for better interactivity
+                    itemElement.onmouseover = function() { 
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    };
+                    itemElement.onmouseout = function() { 
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    };
+                    
+                    // Get the first question with the lowest score for this category
+                    let lowestScoreQuestion = null;
+                    let lowestScore = 10;
+                    
+                    item.data.questions.forEach(q => {
+                        if (q.score < lowestScore) {
+                            lowestScore = q.score;
+                            lowestScoreQuestion = q;
+                        }
+                    });
+                    
+                    itemElement.innerHTML = `
+                        <h4>${item.category}</h4>
+                        <div class="score-bar-container" style="margin: 10px 0; background-color: #ffe5e5; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div class="score-bar" style="width: ${Math.round(item.score)}%; background-color: #ff6b6b; height: 100%;"></div>
+                        </div>
+                        <div class="score-label" style="text-align: right; margin-bottom: 10px; color: #ff6b6b; font-weight: bold;">
+                            ${Math.round(item.score)}%
+                        </div>
+                        <div class="finding-section" style="background-color: #fff; padding: 10px; border-radius: 4px; margin-bottom: 10px; border-left: 2px solid #ff6b6b;">
+                            <p><strong style="color: #ff6b6b;">Finding:</strong> ${lowestScoreQuestion.question}</p>
+                            <p style="font-style: italic; margin-top: 5px; color: #666;"><strong>Your answer:</strong> ${lowestScoreQuestion.answer}</p>
+                        </div>
+                        <div class="recommendation-section" style="background-color: #fff; padding: 10px; border-radius: 4px; border-left: 2px solid #ffc107;">
+                            <p><strong style="color: #ffc107;">Recommendation:</strong> ${lowestScoreQuestion.explanation}</p>
+                        </div>
+                    `;
+                    
+                    improvementContainer.appendChild(itemElement);
+                });
+            } else {
+                improvementContainer.innerHTML = '<p>No specific areas for improvement identified. Keep up the excellent work!</p>';
+            }
+            
+            // Build strengths HTML
+            const strengthsContainer = document.getElementById('strengths-areas');
+            strengthsContainer.innerHTML = '';
+            
+            if (strengths.length > 0) {
+                // Add a header for the strengths section with consistent styling
+                const strengthsHeader = document.createElement('div');
+                strengthsHeader.className = 'section-header';
+                strengthsHeader.innerHTML = `<h3 class="mb-4" style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px;">Your Strengths</h3>`;
+                strengthsContainer.appendChild(strengthsHeader);
+                
+                strengths.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'strength-item';
+                    itemElement.style.marginBottom = '20px';
+                    itemElement.style.padding = '15px';
+                    itemElement.style.backgroundColor = '#f0f9ff';
+                    itemElement.style.borderRadius = '6px';
+                    itemElement.style.borderLeft = '4px solid #0ea5e9';
+                    itemElement.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    itemElement.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+                    
+                    // Hover effect for better interactivity
+                    itemElement.onmouseover = function() { 
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    };
+                    itemElement.onmouseout = function() { 
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                    };
+                    
+                    // Get highest score question for this category
+                    let highestScoreQuestion = null;
+                    let highestScore = 0;
+                    
+                    item.data.questions.forEach(q => {
+                        if (q.score > highestScore) {
+                            highestScore = q.score;
+                            highestScoreQuestion = q;
+                        }
+                    });
+                    
+                    itemElement.innerHTML = `
+                        <h4>${item.category}</h4>
+                        <div class="score-bar-container" style="margin: 10px 0; background-color: #e5f5ff; height: 10px; border-radius: 5px; overflow: hidden;">
+                            <div class="score-bar" style="width: ${Math.round(item.score)}%; background-color: #0ea5e9; height: 100%;"></div>
+                        </div>
+                        <div class="score-label" style="text-align: right; margin-bottom: 10px; color: #0ea5e9; font-weight: bold;">
+                            ${Math.round(item.score)}%
+                        </div>
+                        <div class="strength-section" style="background-color: #fff; padding: 10px; border-radius: 4px; margin-bottom: 10px; border-left: 2px solid #0ea5e9;">
+                            <p><strong style="color: #0ea5e9;">Strength:</strong> ${highestScoreQuestion.question}</p>
+                            <p style="font-style: italic; margin-top: 5px; color: #666;"><strong>Your approach:</strong> ${highestScoreQuestion.answer}</p>
+                        </div>
+                        <div class="impact-section" style="background-color: #fff; padding: 10px; border-radius: 4px; border-left: 2px solid #16a34a;">
+                            <p><strong style="color: #16a34a;">Impact:</strong> ${highestScoreQuestion.explanation}</p>
+                        </div>
+                    `;
+                    
+                    strengthsContainer.appendChild(itemElement);
+                });
+            } else {
+                strengthsContainer.innerHTML = '<p>Keep implementing the recommendations to develop landing page strengths based on best practices.</p>';
+            }
+        }
+        
+        function restartQuiz() {
+            userAnswers = [];
+            currentQuestion = 0;
+            document.getElementById('quiz-results').style.display = 'none';
+            document.getElementById('quiz-intro').style.display = 'block';
+        }
+    </script>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tab buttons
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Show the selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Activate the clicked tab button
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedButton) {
+                    selectedButton.classList.add('active');
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Activate the first tab by default
+            const firstTabButton = tabButtons[0];
+            if (firstTabButton) {
+                const firstTabId = firstTabButton.getAttribute('data-tab');
+                switchTab(firstTabId);
+            }
+        });
+
+        // ... existing code ...
+    </script>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 LeanAI Ventures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
