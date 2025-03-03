@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partnerships & Business Development - ReachGenie Growth Framework</title>
+    <title>Events & Webinars - SaaS Growth Framework</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Copy the existing styles from coldoutbound.html */
         :root {
             --primary: #1877F2;
             --primary-dark: #166FE5;
@@ -157,21 +156,6 @@
             margin-top: 0;
         }
         
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .benefit-card {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
-        }
-        
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
@@ -185,6 +169,13 @@
             max-width: 700px;
             margin: 0 auto;
             color: #666;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
         }
         
         .nav-links {
@@ -223,11 +214,73 @@
             font-size: 1.1rem;
         }
         
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 3rem 0;
-            text-align: center;
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Update tab styles */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.25rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            background: rgba(24, 119, 242, 0.1);
+        }
+        
+        .tab-button.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                gap: 0.25rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -242,9 +295,9 @@
                     <a href="contentmarketing.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> Content Marketing</a>
                     <a href="seo.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> SEO</a>
                     <a href="socialmedia.html" class="nav-link"><i class="fa-solid fa-share-nodes"></i> Social Media</a>
-                    <a href="partnerships.html" class="nav-link active"><i class="fa-solid fa-handshake"></i> Partnerships</a>
+                    <a href="partnerships.html" class="nav-link"><i class="fa-solid fa-handshake"></i> Partnerships</a>
                     <a href="viral.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Viral & Referral</a>
-                    <a href="events.html" class="nav-link"><i class="fa-solid fa-calendar"></i> Events</a>
+                    <a href="events.html" class="nav-link active"><i class="fa-solid fa-calendar"></i> Events</a>
                     <a href="plg.html" class="nav-link"><i class="fa-solid fa-rocket"></i> Product Led Growth</a>
                     <a href="pr.html" class="nav-link"><i class="fa-solid fa-newspaper"></i> PR & Media</a>
                     <a href="fullframework.html" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Full Framework</a>
@@ -255,8 +308,8 @@
     
     <section class="hero">
         <div class="container">
-            <h1>Partnerships & Business Development</h1>
-            <p class="subheader">Build strategic alliances to accelerate growth and expand market reach</p>
+            <h1>Events & Webinars</h1>
+            <p class="subheader">Build thought leadership and generate high-quality leads through educational content and networking</p>
             <a href="#step-by-step" class="btn btn-primary">Get Started Now</a>
             <a href="#examples" class="btn btn-outline">See Examples</a>
         </div>
@@ -265,27 +318,32 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Why Partnerships Matter for B2B SaaS</h2>
-                <p>Strategic partnerships can accelerate growth, expand reach, and create sustainable competitive advantages</p>
+                <h2>Why Events & Webinars Work</h2>
+                <p>Create meaningful connections and demonstrate expertise through live interactions</p>
             </div>
             
             <div class="benefits">
                 <div class="benefit-card">
-                    <h3>Market Expansion</h3>
-                    <p>Access new markets and customer segments through strategic partnerships</p>
+                    <h3>Direct Engagement</h3>
+                    <p>73% of B2B executives say webinars are the best way to generate high-quality leads</p>
                 </div>
                 <div class="benefit-card">
-                    <h3>Product Integration</h3>
-                    <p>Create additional value through technical integrations with complementary solutions</p>
+                    <h3>Thought Leadership</h3>
+                    <p>Position your brand as an industry expert through educational content</p>
                 </div>
                 <div class="benefit-card">
-                    <h3>Co-Marketing</h3>
-                    <p>Leverage partner channels for increased brand visibility and lead generation</p>
+                    <h3>Network Building</h3>
+                    <p>Create lasting relationships with prospects, customers, and partners</p>
                 </div>
                 <div class="benefit-card">
-                    <h3>Revenue Share</h3>
-                    <p>Create mutually beneficial revenue streams through partnership agreements</p>
+                    <h3>Content Creation</h3>
+                    <p>Generate valuable content that can be repurposed across channels</p>
                 </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Our monthly webinar series has become our most reliable source of enterprise leads. The key was focusing on educational content that truly helps our audience solve problems, rather than just pitching our product."</p>
+                <p class="testimonial-author">— Michael Zhang, Director of Marketing at Enterprise SaaS Co</p>
             </div>
         </div>
     </section>
@@ -293,56 +351,56 @@
     <section id="step-by-step" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Partnership Strategy Guide</h2>
-                <p>Master the key elements of successful B2B partnerships</p>
+                <h2>Event Strategy Guide</h2>
+                <p>Master the key elements of successful B2B events and webinars</p>
             </div>
             
             <ol class="steps">
                 <li class="step">
-                    <h3>Partner Identification</h3>
-                    <p>Find and evaluate potential strategic partners</p>
+                    <h3>Event Planning</h3>
+                    <p>Design engaging events that deliver value</p>
                     <ul class="checklist">
-                        <li>Map your ecosystem to identify complementary solutions</li>
-                        <li>Research potential partners' market presence and reputation</li>
-                        <li>Evaluate cultural and strategic fit</li>
-                        <li>Assess technical compatibility for integrations</li>
-                        <li>Consider partner's growth trajectory and stability</li>
+                        <li>Define clear event objectives and KPIs</li>
+                        <li>Choose the right format and platform</li>
+                        <li>Create compelling content agenda</li>
+                        <li>Select and prepare speakers</li>
+                        <li>Plan interactive elements</li>
                     </ul>
                 </li>
                 
                 <li class="step">
-                    <h3>Partnership Design</h3>
-                    <p>Structure partnerships for mutual success</p>
+                    <h3>Promotion & Registration</h3>
+                    <p>Drive attendance and engagement</p>
                     <ul class="checklist">
-                        <li>Define clear partnership objectives and KPIs</li>
-                        <li>Create revenue sharing models</li>
-                        <li>Establish governance frameworks</li>
-                        <li>Design joint go-to-market strategies</li>
-                        <li>Plan resource allocation and commitments</li>
+                        <li>Create multi-channel promotion plan</li>
+                        <li>Design optimized registration process</li>
+                        <li>Implement email nurture sequence</li>
+                        <li>Use social proof and testimonials</li>
+                        <li>Leverage partner networks</li>
                     </ul>
                 </li>
                 
                 <li class="step">
-                    <h3>Integration & Launch</h3>
-                    <p>Execute partnership initiatives effectively</p>
+                    <h3>Event Execution</h3>
+                    <p>Deliver exceptional experiences</p>
                     <ul class="checklist">
-                        <li>Build technical integrations</li>
-                        <li>Create joint marketing materials</li>
-                        <li>Train sales teams on both sides</li>
-                        <li>Set up tracking and reporting</li>
-                        <li>Plan launch communications</li>
+                        <li>Ensure technical readiness</li>
+                        <li>Create engaging presentations</li>
+                        <li>Facilitate audience interaction</li>
+                        <li>Capture leads and insights</li>
+                        <li>Record for future use</li>
                     </ul>
                 </li>
                 
                 <li class="step">
-                    <h3>Growth & Optimization</h3>
-                    <p>Scale successful partnerships</p>
+                    <h3>Follow-Up & Optimization</h3>
+                    <p>Convert attendees into opportunities</p>
                     <ul class="checklist">
-                        <li>Monitor partnership KPIs</li>
-                        <li>Identify expansion opportunities</li>
-                        <li>Optimize processes based on learnings</li>
-                        <li>Deepen relationships at all levels</li>
-                        <li>Share success stories and best practices</li>
+                        <li>Implement follow-up sequence</li>
+                        <li>Share event recordings and resources</li>
+                        <li>Score and route leads</li>
+                        <li>Analyze event metrics</li>
+                        <li>Optimize future events</li>
                     </ul>
                 </li>
             </ol>
@@ -352,43 +410,43 @@
     <section id="examples" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Partnership Success Stories</h2>
-                <p>Learn from real examples of effective B2B SaaS partnerships</p>
+                <h2>Event Success Stories</h2>
+                <p>Learn from real examples of effective B2B events and webinars</p>
             </div>
             
             <div class="card">
-                <h3>Integration Partnership</h3>
-                <p>A marketing automation platform partnered with a CRM provider, creating a seamless integration that drove 40% more enterprise deals for both companies.</p>
+                <h3>Educational Webinar Series</h3>
+                <p>A SaaS platform generated 500+ qualified leads per month through industry expert webinars.</p>
                 <p><strong>Key Success Factors:</strong></p>
                 <ul class="checklist">
-                    <li>Deep technical integration</li>
-                    <li>Joint go-to-market strategy</li>
-                    <li>Shared customer success resources</li>
-                    <li>Clear revenue attribution model</li>
+                    <li>High-value educational content</li>
+                    <li>Expert guest speakers</li>
+                    <li>Interactive Q&A sessions</li>
+                    <li>Effective follow-up process</li>
                 </ul>
             </div>
             
             <div class="card">
-                <h3>Channel Partnership</h3>
-                <p>An analytics company built a network of implementation partners, resulting in 3x growth in enterprise revenue within 18 months.</p>
+                <h3>Virtual Conference</h3>
+                <p>An enterprise software company's virtual summit attracted 5,000 attendees and generated 200 opportunities.</p>
                 <p><strong>Success Factors:</strong></p>
                 <ul class="checklist">
-                    <li>Comprehensive partner enablement</li>
-                    <li>Attractive margin structure</li>
-                    <li>Co-marketing support</li>
-                    <li>Regular business reviews</li>
+                    <li>Multiple targeted tracks</li>
+                    <li>Networking opportunities</li>
+                    <li>On-demand access</li>
+                    <li>Partner sponsorships</li>
                 </ul>
             </div>
             
             <div class="card">
-                <h3>Strategic Alliance</h3>
-                <p>Two complementary SaaS providers created a joint solution for a specific industry vertical, becoming the dominant player in that niche.</p>
+                <h3>Customer Showcase Event</h3>
+                <p>A B2B platform's customer story webinar series achieved 45% conversion to sales meetings.</p>
                 <p><strong>Key Tactics:</strong></p>
                 <ul class="checklist">
-                    <li>Exclusive partnership agreement</li>
-                    <li>Joint product development</li>
-                    <li>Shared go-to-market resources</li>
-                    <li>Executive alignment and sponsorship</li>
+                    <li>Real customer success stories</li>
+                    <li>Live product demonstrations</li>
+                    <li>Industry-specific focus</li>
+                    <li>Direct sales team involvement</li>
                 </ul>
             </div>
         </div>
