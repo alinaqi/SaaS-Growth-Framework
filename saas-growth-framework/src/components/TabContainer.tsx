@@ -25,12 +25,14 @@ const TabContainer: React.FC<TabContainerProps> = ({
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`py-3 px-5 bg-transparent border-2 border-primary rounded-lg font-bold transition-all duration-300 text-sm md:text-base whitespace-nowrap
+            className={`py-3 px-5 rounded-lg font-bold transition-all duration-300 text-sm md:text-base whitespace-nowrap
               ${activeTab === tab.id 
-                ? 'bg-primary text-white' 
-                : 'text-primary hover:bg-primary hover:bg-opacity-10'
+                ? 'bg-primary-dark text-light-bg border-2 border-primary-dark shadow-md' 
+                : 'bg-light-bg text-primary border-2 border-primary hover:bg-primary hover:text-light-bg'
               }`}
             onClick={() => setActiveTab(tab.id)}
+            aria-selected={activeTab === tab.id}
+            role="tab"
           >
             {tab.label}
           </button>
@@ -42,6 +44,8 @@ const TabContainer: React.FC<TabContainerProps> = ({
           <div 
             key={tab.id} 
             className={activeTab === tab.id ? 'block' : 'hidden'}
+            role="tabpanel"
+            aria-labelledby={tab.id}
           >
             {tab.content}
           </div>
